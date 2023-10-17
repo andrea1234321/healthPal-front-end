@@ -24,10 +24,22 @@ const Profiles = () => {
   
   return (
     <main className={styles.container}>
-      <h1>Hello. This is a list of all the profiles.</h1>
-      {profiles.map(profile => (
-        <p key={profile._id}>{profile.name}</p>
-      ))}
+      <h1>Please choose a user to begin the demo</h1>
+
+      {/* Make this a component */}
+      <div className= "input-container">
+        {profiles.map(profile => (
+          <p key={profile._id}>
+            <h2>{profile.name}</h2>
+            {/* Make this into a table */}
+            <p>Sex assigned at birth: {profile.sex}</p>
+            <p>Year of birth: {profile.birthYear}</p>
+            <p>Weight: {profile.weight}</p>
+            <p>Height: {profile.height}</p>
+            <p>Medical History: {profile.medicalHx}</p>
+          </p>
+        ))}  
+      </div>
     </main>
   )
 }
