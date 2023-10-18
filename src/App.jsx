@@ -9,6 +9,7 @@ import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import Chat from './pages/Chat/Chat'
+import Concern from './pages/Concern/Concern'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -33,12 +34,13 @@ function App() {
   const handleAuthEvt = () => {
     setUser(authService.getUser())
   }
+
   return (
     <>
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
         <Route path="/" element={<Landing user={user} />} />
-        
+
         <Route
           path="/profiles"
           element={
@@ -60,6 +62,14 @@ function App() {
           element={
             <ProtectedRoute user={user}>
               <ChangePassword handleAuthEvt={handleAuthEvt} />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/chat/concern"
+          element={ 
+            <ProtectedRoute user={user}>
+              <Concern user={user}/>
             </ProtectedRoute>
           }
         />

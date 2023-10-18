@@ -11,6 +11,7 @@ const NavBar = ({ user, handleLogout }) => {
           <li><NavLink to="" onClick={handleLogout}>LOG OUT</NavLink></li>
           <li><NavLink to="/auth/change-password">Change Password</NavLink></li>
           <li><NavLink to="/chat">Chat</NavLink></li>
+          <li><NavLink to="/chat/concern">Concern</NavLink></li>
         </ul>
       :
         <ul>
