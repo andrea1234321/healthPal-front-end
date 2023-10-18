@@ -1,5 +1,6 @@
 // npm modules
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 // services
 import * as profileService from '../../services/profileService'
@@ -29,15 +30,17 @@ const Profiles = () => {
       {/* Make this a component */}
       <div className= "input-container">
         {profiles.map(profile => (
-          <p key={profile._id}>
-            <h2>{profile.name}</h2>
-            {/* Make this into a table */}
-            <p>Sex assigned at birth: {profile.sex}</p>
-            <p>Year of birth: {profile.birthYear}</p>
-            <p>Weight: {profile.weight}</p>
-            <p>Height: {profile.height}</p>
-            <p>Medical History: {profile.medicalHx}</p>
-          </p>
+          <div key={profile._id}>
+            <Link to="/chat/concern">
+              <h2>{profile.name}</h2>
+              {/* Make this into a table */}
+              <p>Sex assigned at birth: {profile.sex}</p>
+              <p>Year of birth: {profile.birthYear}</p>
+              <p>Weight: {profile.weight}</p>
+              <p>Height: {profile.height}</p>
+              <p>Medical History: {profile.medicalHx}</p>
+            </Link>
+          </div>
         ))}  
       </div>
     </main>
