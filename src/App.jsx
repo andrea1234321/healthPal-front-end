@@ -10,6 +10,7 @@ import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import Chat from './pages/Chat/Chat'
 import Concern from './pages/Concern/Concern'
+import Symptoms from './pages/Symptoms/Symptoms'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -78,6 +79,14 @@ function App() {
           element={ 
             <ProtectedRoute user={user}>
               <Chat />
+            </ProtectedRoute>
+          }
+        />
+          <Route
+          path="/chat/symptoms"
+          element={ 
+            <ProtectedRoute user={user}>
+              <Symptoms user={user}/>
             </ProtectedRoute>
           }
         />
