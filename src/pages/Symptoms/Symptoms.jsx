@@ -1,5 +1,6 @@
 import { useState } from "react";
 import data from "../../data/data.json"
+import { Link } from 'react-router-dom'
 
 const Symptoms = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -18,6 +19,11 @@ const Symptoms = () => {
     );
   setFilteredData(filteredData);
 };
+
+  const handleClickSymptom = (event) => {
+    setSearchTerm(event.target.innerHTML);
+    filterData(event.target.innerHTML);
+  }
   return ( 
     <>
       <p>What is your current concern?</p>
@@ -27,19 +33,20 @@ const Symptoms = () => {
         value={searchTerm}
         onChange={handleInputChange}
         />
-      <button>enter</button>
+      <Link to="/chat/questions">
+        <button>enter</button>
+      </Link>
       <div>
         {searchTerm ? 
           <ul>
             {filteredData.map((item)=> (
-              <li key={item.id}>
+              <li key={item.id} onClick={handleClickSymptom} >
                 {item.name}
               </li>
             ))}
           </ul>
             : ''}
       </div>
-      
     </>
    );
 }
