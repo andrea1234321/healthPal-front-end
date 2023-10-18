@@ -11,6 +11,7 @@ import ChangePassword from './pages/ChangePassword/ChangePassword'
 import Chat from './pages/Chat/Chat'
 import Concern from './pages/Concern/Concern'
 import Symptoms from './pages/Symptoms/Symptoms'
+import Questions from './pages/Questions/Questions'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -25,6 +26,13 @@ import './App.css'
 function App() {
   const [user, setUser] = useState(authService.getUser())
   const navigate = useNavigate()
+  const [problem, setProblem]= useState({
+    concern: '',
+    location: '',
+    duration: '',
+    quality: '',
+    severity: '',
+  })
 
   const handleLogout = () => {
     authService.logout()
@@ -34,6 +42,10 @@ function App() {
 
   const handleAuthEvt = () => {
     setUser(authService.getUser())
+  }
+
+  const handleAddProblem= (category, userResponse) => {
+    setProblem({...problem, [category]: userResponse})
   }
 
   return (
@@ -82,11 +94,19 @@ function App() {
             </ProtectedRoute>
           }
         />
-          <Route
+        <Route
           path="/chat/symptoms"
           element={ 
             <ProtectedRoute user={user}>
-              <Symptoms user={user}/>
+              <Symptoms user={user} handleAddProblem={handleAddProblem}/>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/chat/questions"
+          element={ 
+            <ProtectedRoute user={user}>
+              <Questions user={user} problem={problem}/>
             </ProtectedRoute>
           }
         />

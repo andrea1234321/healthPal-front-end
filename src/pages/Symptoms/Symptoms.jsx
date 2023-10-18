@@ -2,7 +2,7 @@ import { useState } from "react";
 import data from "../../data/data.json"
 import { Link } from 'react-router-dom'
 
-const Symptoms = () => {
+const Symptoms = ({handleAddProblem}) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredData, setFilteredData] = useState(data);
 
@@ -18,12 +18,13 @@ const Symptoms = () => {
       symptom.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
   setFilteredData(filteredData);
-};
+  };
 
   const handleClickSymptom = (event) => {
     setSearchTerm(event.target.innerHTML);
     filterData(event.target.innerHTML);
   }
+
   return ( 
     <>
       <p>What is your current concern?</p>
@@ -33,8 +34,8 @@ const Symptoms = () => {
         value={searchTerm}
         onChange={handleInputChange}
         />
-      <Link to="/chat/questions">
-        <button>enter</button>
+      <Link to="/chat/questions" >
+        <button onClick={()=> handleAddProblem("concern", searchTerm)}>enter</button>
       </Link>
       <div>
         {searchTerm ? 
