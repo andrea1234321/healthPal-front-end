@@ -1,0 +1,23 @@
+.profiles{
+  width: 925px;
+  padding: 64px;
+  border: 1px solid black;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.profileLabel{
+  display: flex;
+  justify-content: space-between;
+  /* background-color: red; */
+  width: 100%;
+}
+
+.profiles:hover{
+  cursor: pointer;
+  background-color: grey;
+  transition: .2s;
+}
+
