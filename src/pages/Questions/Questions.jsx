@@ -17,10 +17,7 @@ const Questions = ({symptom, handleAddProblem, user}) => {
     otherSxs: '',
   })
 
-  //  const navigate = useNavigate()
-  //  const handleSubmit = () => {
-  //     navigate('/chat/results')
-  //  }
+  const navigate = useNavigate()
 
    const handleChange = (evt) => {
     setForm({...form, [evt.target.name]: evt.target.value })
@@ -30,6 +27,7 @@ const Questions = ({symptom, handleAddProblem, user}) => {
     evt.preventDefault()
     handleAddProblem(form)
     console.log(form)
+    navigate('/chat/results')
   }
 
    return ( 
