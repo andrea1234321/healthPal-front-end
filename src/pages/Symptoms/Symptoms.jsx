@@ -15,7 +15,7 @@ const Symptoms = ({handleAddConcern}) => {
 
   const filterData = (searchTerm) => {
     const filteredData = data.filter((symptom) =>
-      symptom.name.toLowerCase().includes(searchTerm.toLowerCase())
+    symptom.name.toLowerCase().startsWith(searchTerm.toLowerCase())
     );
   setFilteredData(filteredData);
   };
