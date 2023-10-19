@@ -9,37 +9,54 @@ import * as profileService from '../../services/profileService'
 import styles from './Results.module.css'
 
 
-const Results = ({symptomData}) => {
+const Results = ({problem}) => {
+  console.log("Results:", problem.location)
   const [results, setResults] = useState(false)
-  // const [profile, setProfile] = useState(false)
+  const [profileString, setProfileString] = useState(false)
+  const [problemString, setProblemString] = useState(false)
+  
+  const stringProfileData = (profile) => {
+    const age = new Date().getFullYear() - profile.birthYear
+    const bmi = Math.round((profile.weight / (profile.height* profile.height)) * 703)
 
-  // const stringProfileData= (profile) => {
-  //   const age = new Date().getFullYear() - profile.birthYear
-    
-  //   console.log(age)
-  //   const profileString = `${age} year old $profile.sex Patient  `
-  // }
+    return (`The user is a ${age} year old ${profile.sex} with a ${bmi} BMI and a medical history of ${profile.medicalHx}.`)
+  }
+
+  const stringProblemData = () => {
+
+  }
+  
+  const fetchProfile = async () => {
+    const profileData = await profileService.getProfile()
+    const profileString = stringProfileData (profileData)
+    setProfileString(profileString)
+  }
 
   // useEffect(() => {
   //   const fetchProfile = async () => {
   //     const profileData = await profileService.getProfile()
-  //     setProfile(profileData)
+  //     const profileString = stringProfileData (profileData)
+  //     setProfileString(profileString)
   //   }
   //   fetchProfile()
   // }, [])
 
-  useEffect(() => {
-    // const fetchProfile = async () => {
-    //   const profileData = await profileService.getProfile()
-    //   setProfile(profileData)
+  const fetchResults = async() =>{
+    console.log(profileString)
+    const data = await chatService.getResultsFromAPI(problemData)
+    console.log(data)
+    setResults(data.choices[0].message)
+  }
+
+  useEffect(() => {   
+    // const fetchResults = async() =>{
+    //   console.log(profileString)
+    //   const data = await chatService.getResultsFromAPI(problemData)
+    //   console.log("results retrieved - should only be once in prod")
+    //   setResults(data.choices[0].message)
     // }
-    const fetchResults = async() =>{
-      const data = await chatService.getResultsFromAPI(symptomData)
-      console.log("results retrieved - should only be once in prod")
-      setResults(data.choices[0].message)
-    }
-    // if (!profile) fetchProfile()
-    if (!results) fetchResults()
+    if (!profileString) fetchProfile()
+    // if (!results) fetchResults()
   },[])
 
 

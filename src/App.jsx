@@ -44,8 +44,7 @@ function App() {
   }
 
   const handleAddProblem= (form) => {
-    setProblem({form})
-    console.log(problem)
+    setProblem(form)
   }
   
   const handleAddConcern= (userResponse) => {
@@ -73,15 +72,6 @@ function App() {
     } catch (err) {
       console.log(err)
     }
-  }
-
-  //For testing only
-  const symptomData = {
-    concern: "Chest pain",
-    location: "Pain radiating down the arm",
-    duration: "12 hours",
-    quality: "Tightness",
-    severity: "Moderate"
   }
 
   return (
@@ -133,7 +123,7 @@ function App() {
           path="/chat/results"
           element={ 
             <ProtectedRoute user={user}>
-              <Results symptomData= {symptomData} user={user}/>
+              <Results problem={problem} user={user}/>
             </ProtectedRoute>
           }
         />
