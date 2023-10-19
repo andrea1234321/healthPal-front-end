@@ -30,13 +30,8 @@ function App() {
   // const [results, setResults] = useState([])
 
   const navigate = useNavigate()
-  const [problem, setProblem]= useState({
-    concern: '',
-    location: '',
-    duration: '',
-    quality: '',
-    severity: '',
-  })
+  const [concern, setConcern]= useState('')
+  const [problem, setProblem]= useState({})
 
   const handleLogout = () => {
     authService.logout()
@@ -48,8 +43,13 @@ function App() {
     setUser(authService.getUser())
   }
 
-  const handleAddProblem= (category, userResponse) => {
-    setProblem({...problem, [category]: userResponse})
+  const handleAddProblem= (form) => {
+    setProblem({form})
+    console.log(problem)
+  }
+  
+  const handleAddConcern= (userResponse) => {
+    setConcern(userResponse)
   }
 
   // const handleFetchResults = async(problem) =>{
@@ -121,7 +121,7 @@ function App() {
           path="/chat/symptoms"
           element={ 
             <ProtectedRoute user={user}>
-              <Symptoms user={user} handleAddProblem={handleAddProblem}/>
+              <Symptoms user={user} handleAddConcern={handleAddConcern}/>
             </ProtectedRoute>
           }
         />
@@ -129,11 +129,10 @@ function App() {
           path="/chat/questions"
           element={ 
             <ProtectedRoute user={user}>
-              <Questions user={user} problem={problem}/>
+              <Questions user={user} symptom={concern} handleAddProblem={handleAddProblem}/>
             </ProtectedRoute>
           }
         />
-        
       </Routes>
     </>
   )

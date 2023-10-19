@@ -2,7 +2,7 @@ import { useState } from "react";
 import data from "../../data/data.json"
 import { Link } from 'react-router-dom'
 
-const Symptoms = ({handleAddProblem}) => {
+const Symptoms = ({handleAddConcern}) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredData, setFilteredData] = useState(data);
 
@@ -35,7 +35,7 @@ const Symptoms = ({handleAddProblem}) => {
         onChange={handleInputChange}
         />
       <Link to="/chat/questions" >
-        <button onClick={()=> handleAddProblem("concern", searchTerm)}>enter</button>
+        <button onClick={()=> handleAddConcern(searchTerm)}>enter</button>
       </Link>
       <div>
         {searchTerm ? 
