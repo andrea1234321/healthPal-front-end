@@ -19,25 +19,16 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 
 // services
 import * as authService from './services/authService'
+// import * as chatService from './services/chatService'
 
 // styles
 import './App.css'
 
 function App() {
-  // For testing 
-  const problem = {
-    concern: "Chest pain",
-    location: "Pain radiating down the arm",
-    duration: "12 hours",
-    quality: "Tightness",
-    severity: "Moderate"
-  }
-  const profileData = {
-    sex: "female",
-    age: "35",
-  }
 
   const [user, setUser] = useState(authService.getUser())
+  // const [results, setResults] = useState([])
+
   const navigate = useNavigate()
   const [problem, setProblem]= useState({
     concern: '',
@@ -59,6 +50,25 @@ function App() {
 
   const handleAddProblem= (category, userResponse) => {
     setProblem({...problem, [category]: userResponse})
+  }
+
+  // const handleFetchResults = async(problem) =>{
+  //   const data = await chatService.getResultsFromAPI(problem)
+  //   setResults(data.choices[0].message)
+  //   navigate('/chat/results')
+  // }
+
+  //For testing only
+  const symptomData = {
+    concern: "Chest pain",
+    location: "Pain radiating down the arm",
+    duration: "12 hours",
+    quality: "Tightness",
+    severity: "Moderate"
+  }
+  const profileData = {
+    sex: "female",
+    age: "35",
   }
 
   return (
@@ -103,7 +113,7 @@ function App() {
           path="/chat/results"
           element={ 
             <ProtectedRoute user={user}>
-              <Results problem = {problem}/>
+              <Results symptomData= {symptomData}/>
             </ProtectedRoute>
           }
         />
@@ -123,6 +133,7 @@ function App() {
             </ProtectedRoute>
           }
         />
+        
       </Routes>
     </>
   )
