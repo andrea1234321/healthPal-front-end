@@ -49,4 +49,20 @@ h2{
 h3{
   font-size: 40px;
 }
-
+.note{
+  background-color: grey;
+  border-radius: 16px;
+  padding: 24px;
+  text-align: left;
+  width: 925px;
+  margin: 20px auto;
+}
+.greetingQuestion{
+  background-color: grey;
+  border: 1px solid white;
+  padding: 28px 24px;
+  border-radius: 16px;
+  width: 925px;
+  margin: 20px auto;
+  text-align: left; 
+}

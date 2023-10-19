@@ -21,20 +21,21 @@ const Symptoms = ({handleAddConcern, user}) => {
   setFilteredData(filteredData);
   };
 
-  const handleClickSymptom = (event) => {
-    setSearchTerm(event.target.innerHTML);
-    filterData(event.target.innerHTML);
-  }
+  // const handleClickSymptom = (event) => {
+  //   setSearchTerm(event.target.innerHTML);
+  //   filterData(event.target.innerHTML);
+  // }
 
   return ( 
     <>
-      <h4 className={styles.note}>This tool is not a substitute for professional medical advice, diagnosis, or treatment. If you are experiencing a life-threatening emergency that requires immediate attention please call 911 or the number for your local emergency service.</h4>
-      <p className={styles.greetingQuestion}>Hi {user.name}, what is your main concern today?</p>
+      <h4 className='note'>This tool is not a substitute for professional medical advice, diagnosis, or treatment. If you are experiencing a life-threatening emergency that requires immediate attention please call 911 or the number for your local emergency service.</h4>
+      <p className="greetingQuestion">Hi {user.name}, what is your main concern today?</p>
       <input 
         type="text" 
         placeholder="Search for a symptom" 
         value={searchTerm}
         onChange={handleInputChange}
+        className={styles.symptomInput}
         />
       {/* <Link to="/chat/questions" >
         <button onClick={()=> handleAddConcern(searchTerm)}>enter</button>
