@@ -12,7 +12,7 @@ const Concern = ({user}) => {
         <h1>How can we help you today?</h1>
       </header>
     
-      <Link to="/chat/questions">
+      <Link to="/chat/symptoms">
         <section className={styles.main}>
           <p>I need care now for an immediate problem</p>
           <p>for my current symptoms</p>
