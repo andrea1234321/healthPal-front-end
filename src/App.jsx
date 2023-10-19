@@ -52,11 +52,28 @@ function App() {
     setProblem({...problem, [category]: userResponse})
   }
 
-  // const handleFetchResults = async(problem) =>{
-  //   const data = await chatService.getResultsFromAPI(problem)
-  //   setResults(data.choices[0].message)
-  //   navigate('/chat/results')
-  // }
+  // FOR DEMO PURPOSES ONLY
+  const handleProfile = async(profile_name) => {
+    try {
+      let formData = {}
+      if (profile_name === 'Emily'){
+        formData = {
+          email: 'emily@gmail.com',
+          password: 'emily'
+        }
+      } else {
+        formData = {
+          email: 'john@gmail.com',
+          password: 'john'
+        }
+      }
+      await authService.login(formData)
+      handleAuthEvt()
+      navigate('/chat/concern')
+    } catch (err) {
+      console.log(err)
+    }
+  }
 
   //For testing only
   const symptomData = {
@@ -66,10 +83,6 @@ function App() {
     quality: "Tightness",
     severity: "Moderate"
   }
-  const profileData = {
-    sex: "female",
-    age: "35",
-  }
 
   return (
     <>
@@ -77,14 +90,21 @@ function App() {
       <Routes>
         <Route path="/" element={<Landing user={user} />} />
 
+        {/* FOR DEMO PURPOSES ONLY */}
         <Route
+          path="/profiles"
+          element={
+              <Profiles handleProfile={handleProfile}/>
+          }
+        />
+        {/* <Route
           path="/profiles"
           element={
             <ProtectedRoute user={user}>
               <Profiles />
             </ProtectedRoute>
           }
-        />
+        /> */}
         <Route
           path="/auth/signup"
           element={<Signup handleAuthEvt={handleAuthEvt} />}
@@ -113,7 +133,7 @@ function App() {
           path="/chat/results"
           element={ 
             <ProtectedRoute user={user}>
-              <Results symptomData= {symptomData}/>
+              <Results symptomData= {symptomData} user={user}/>
             </ProtectedRoute>
           }
         />

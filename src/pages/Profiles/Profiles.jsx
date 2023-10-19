@@ -1,6 +1,5 @@
 // npm modules
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
 
 // components
 import ProfileCard from '../../components/ProfileCard/ProfileCard'
@@ -11,7 +10,7 @@ import * as profileService from '../../services/profileService'
 // css
 import styles from './Profiles.module.css'
 
-const Profiles = () => {
+const Profiles = ({handleProfile}) => {
   const [profiles, setProfiles] = useState([])
 
   useEffect(() => {
@@ -32,7 +31,7 @@ const Profiles = () => {
 
       <div className= {styles.container}>
         {profiles.map(profile => (
-          <ProfileCard key={profile._id} profile={profile} />
+          <ProfileCard key={profile._id} profile={profile} handleProfile={handleProfile} />
         ))}  
       </div>
     </main>
