@@ -8,21 +8,21 @@ const Concern = ({user}) => {
   return (
     <>
       <header>
-        <h3>Welcome back, {user.name}</h3>
-        <h1>How can we help you today?</h1>
+        <h4>Welcome back, {user.name}!</h4>
+        <h2>How can we help you today?</h2>
       </header>
-    
-      <Link to="/chat/symptoms">
-        <section className={styles.main}>
-          <p>I need care now for an immediate problem</p>
-          <p>for my current symptoms</p>
-        </section>
-      </Link>
-
-      <section className={styles.secondary}>
-        <p>I need an annual wellness visit</p>
-        <p>required for insurance</p>
-      </section>
+      <main className={styles.concernOptions}>
+        <Link to="/chat/symptoms">
+          <button className={styles.concernButton}>
+            <h4>I need care now for an immediate problem</h4>
+            <p>for my current symptoms</p>
+          </button>
+        </Link>
+        <button className={styles.concernButton}>
+          <h4>I need an annual wellness visit</h4>
+          <p>required for insurance</p>
+        </button>
+      </main>
     </>
   )
 }

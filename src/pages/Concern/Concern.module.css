@@ -1,0 +1,21 @@
+.concernOptions{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* background-color: red; */
+}
+.concernButton{
+  width: 925px;
+  padding: 64px;
+  border: 1px solid black;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.concernButton:hover{
+  cursor: pointer;
+  background-color: grey;
+  transition: .2s;
+}
