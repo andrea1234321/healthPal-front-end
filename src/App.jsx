@@ -8,7 +8,7 @@ import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
-import Chat from './pages/Chat/Chat'
+import Results from './pages/Results/Results'
 import Concern from './pages/Concern/Concern'
 
 // components
@@ -22,6 +22,19 @@ import * as authService from './services/authService'
 import './App.css'
 
 function App() {
+  // For testing 
+  const problem = {
+    concern: "Chest pain",
+    location: "Pain radiating down the arm",
+    duration: "12 hours",
+    quality: "Tightness",
+    severity: "Moderate"
+  }
+  const profileData = {
+    sex: "female",
+    age: "35",
+  }
+
   const [user, setUser] = useState(authService.getUser())
   const navigate = useNavigate()
 
@@ -74,10 +87,10 @@ function App() {
           }
         />
         <Route
-          path="/chat"
+          path="/chat/results"
           element={ 
             <ProtectedRoute user={user}>
-              <Chat />
+              <Results problem = {problem}/>
             </ProtectedRoute>
           }
         />
