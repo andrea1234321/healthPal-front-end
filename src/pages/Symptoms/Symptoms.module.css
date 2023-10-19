@@ -1,0 +1,38 @@
+.note{
+  background-color: grey;
+  border-radius: 16px;
+  padding: 24px;
+  text-align: left;
+  width: 925px;
+  margin: 20px auto;
+}
+.greetingQuestion{
+  background-color: grey;
+  border: 1px solid white;
+  padding: 28px 24px;
+  border-radius: 16px;
+  width: 925px;
+  margin: 20px auto;
+  text-align: left; 
+}
+input{
+  width: 925px;
+  border-radius: 16px;
+  padding: 16px 24px;
+  display: flex;
+  margin: 0 auto;
+}
+.symptomList{
+  margin: 0 auto;
+  padding: 0;
+  width: 925px;
+}
+.symptomOptions{
+  list-style-type: none;
+  border-bottom: 1px solid grey;
+  padding: 12px;
+}
+.symptomOptions:hover{
+  background-color: grey;
+  border-radius: 16px;
+}
