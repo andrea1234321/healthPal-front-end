@@ -49,6 +49,7 @@ function App() {
   
   const handleAddConcern= (userResponse) => {
     setConcern(userResponse)
+    console.log(concern)
   }
 
   // FOR DEMO PURPOSES ONLY
