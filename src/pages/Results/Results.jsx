@@ -10,14 +10,12 @@ import styles from './Results.module.css'
 
 const Results = ({symptomData}) => {
   const [results, setResults] = useState(false)
-  // const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchResults = async() =>{
       const data = await chatService.getResultsFromAPI(symptomData)
-      console.log("results retrieved")
+      console.log("results retrieved - should only be once in prod")
       setResults(data.choices[0].message)
-      // setLoading(false)
     }
     if (!results) fetchResults()
   },[])

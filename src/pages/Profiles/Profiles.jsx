@@ -2,6 +2,9 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
+// components
+import ProfileCard from '../../components/ProfileCard/ProfileCard'
+
 // services
 import * as profileService from '../../services/profileService'
 
@@ -24,23 +27,12 @@ const Profiles = () => {
   }
   
   return (
-    <main className={styles.container}>
-      <h1>Please choose a user to begin the demo</h1>
+    <main className={styles.main}>
+      <h1>Who do you want to login as?</h1>
 
-      {/* Make this a component */}
-      <div className= "input-container">
+      <div className= {styles.container}>
         {profiles.map(profile => (
-          <div key={profile._id}>
-            <Link to="/chat/concern">
-              <h2>{profile.name}</h2>
-              {/* Make this into a table */}
-              <p>Sex assigned at birth: {profile.sex}</p>
-              <p>Year of birth: {profile.birthYear}</p>
-              <p>Weight: {profile.weight}</p>
-              <p>Height: {profile.height}</p>
-              <p>Medical History: {profile.medicalHx}</p>
-            </Link>
-          </div>
+          <ProfileCard key={profile._id} profile={profile} />
         ))}  
       </div>
     </main>
