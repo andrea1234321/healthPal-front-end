@@ -1,0 +1,71 @@
+.questionsContainer{
+  border-top: 4px solid white;
+  /* background-color: red; */
+  width: 925px;
+  padding: 12px;
+  margin: 0 auto;
+}
+.symptom{
+  text-align: left;
+  margin: 0;
+  /* background-color: red; */
+  padding-bottom: 8px;
+  border-bottom: 3px solid grey;
+}
+.input{
+  width: 100%;
+  border-radius: 16px;
+  padding: 16px 24px;
+  display: flex;
+  margin: 0 auto;
+}
+.label{
+  text-align: left;
+  /* background-color: red; */
+  margin: 20px 0;
+  padding-bottom: 10px;
+}
+.questionBlock{
+  /* background-color: purple; */
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 30px;
+  border-bottom: 2px solid white;
+}
+.questionBlockLast{
+  /* background-color: purple; */
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 30px;
+
+}
+.lengthAnswers{
+  /* background-color: red; */
+  display: flex;
+}
+.lengthInput{
+  width: 20%;
+  border-radius: 16px;
+  padding: 16px 24px;
+  margin-left: 0;
+}
+.lengthSelect{
+  border-radius: 16px;
+  padding: 16px 24px;
+  width: 20%;
+}
+.severitySelect{
+  border-radius: 16px;
+  padding: 16px 24px;
+  width: 50%;
+}
+.submit{
+  background-color: white;
+  border-radius: 16px;
+  padding: 16px 24px;
+  width: 100%;
+}
+.submit:hover{
+  background-color: grey;
+  cursor: pointer;
+}

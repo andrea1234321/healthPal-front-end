@@ -1,4 +1,4 @@
-.note{
+/* .note{
   background-color: grey;
   border-radius: 16px;
   padding: 24px;
@@ -14,8 +14,8 @@
   width: 925px;
   margin: 20px auto;
   text-align: left; 
-}
-input{
+} */
+.symptomInput{
   width: 925px;
   border-radius: 16px;
   padding: 16px 24px;
