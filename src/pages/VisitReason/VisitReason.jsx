@@ -7,20 +7,18 @@ import styles from './VisitReason.module.css'
 const VisitReason = ({user}) => {
   return (
     <>
-      <header>
-        <p className='greeting'>Welcome back, {user.name}!</p>
-        <h2>How can we help you today?</h2>
-      </header>
       <main className={styles.visitOptions}>
+        <p className='greeting'>Welcome back, {user.name}!</p>
+        <h1>How can I help you today?</h1>
         <Link to="/chat">
-          <button className={styles.visitButton}>
-            <h4>I need care now for an immediate problem</h4>
-            <p>for my current symptoms</p>
+          <button className="containerButtons">
+            <p className={styles.p}><strong>I need care now for an immediate problem</strong></p>
+            <p className={styles.p}>for my current symptoms</p>
           </button>
         </Link>
-        <button className={styles.visitButton}>
-          <h4>I need an annual wellness visit</h4>
-          <p>required for insurance</p>
+        <button className="containerButtons">
+          <p className={styles.p}><strong>I need an annual wellness visit</strong></p>
+          <p className={styles.p}>required for insurance</p>
         </button>
       </main>
     </>

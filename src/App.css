@@ -18,7 +18,14 @@ body {
   -webkit-text-size-adjust: 100%;
   /* text-align: center;  */
 }
-
+main{
+  margin: 0 26%;
+  /* background-color: red; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
 a,
 a:visited {
   color: #00533B;
@@ -45,6 +52,8 @@ nav > .navLinks {
 h1{
   font-size: 60px;
   margin: 0;
+  color: #00533B;
+  font-weight: 700;
 }
 h2{
   font-size: 48px;
@@ -52,7 +61,11 @@ h2{
 }
 h3{
   font-size: 40px;
+  color: #1D1B20;
+  font-weight: 400;
+  margin:0;
 }
+
 .note{
   background-color: grey;
   border-radius: 16px;
@@ -103,6 +116,20 @@ h3{
   color: #48464C;
   font-size: 18px;
   font-weight: 700;
-  margin-bottom: 44px;
+  margin-bottom: 16px;
   margin-top: 32px;
+}
+.containerButtons{
+  width: 100%;
+  padding: 64px;
+  border: 1px solid #A1C181;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  background-color: white;
+}
+.containerButtons:hover{
+  cursor: pointer;
 }
