@@ -9,7 +9,7 @@ async function stringifyProfileData() {
     const profile = await profileService.getProfile();
     const age = new Date().getFullYear() - profile.birthYear;
     const bmi = Math.round((profile.weight / (profile.height * profile.height)) * 703);
-    return `The user is a ${age} year old ${profile.sex} with a ${bmi} BMI and a medical history of ${profile.medicalHx}. The following information is the patient's complaint:`;
+    return `The user is a ${age} year old ${profile.sex} with a ${bmi} BMI and a medical history of ${profile.medicalHx}.`;
   } catch (error) {
     console.error('Error fetching profile data:', error);
     throw error; // Propagate the error.
@@ -18,7 +18,6 @@ async function stringifyProfileData() {
 
 function stringifyProblemData(problem) {
   const res = `
-    The following information is the patient's complaint:
     Primary symptom: ${problem.concern}
     Location of symptom: ${problem.location}
     Duration of symptom: ${problem.duration} ${problem.unit}
