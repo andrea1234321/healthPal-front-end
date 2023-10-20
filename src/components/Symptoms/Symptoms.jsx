@@ -1,12 +1,12 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import data from "../../data/data.json"
-import { Link } from 'react-router-dom'
 import styles from './Symptoms.module.css'
 
-const Symptoms = ({handleAddConcern, user, concern}) => {
+const Symptoms = ({handleAddConcern, user}) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredData, setFilteredData] = useState(data);
-
+  const navigate= useNavigate()
 
   const handleInputChange = (event) => {
     const {value} = event.target;
@@ -21,14 +21,14 @@ const Symptoms = ({handleAddConcern, user, concern}) => {
   setFilteredData(filteredData);
   };
 
-  const handleClickSymptom = (event) => {
-    setSearchTerm(event.target.innerHTML);
-    filterData(event.target.innerHTML);
+  const handleClickSymptom = (item) => {
+    console.log("item:", item)
+    handleAddConcern(item)
+    // navigate('/chat/questions')
   }
 
-  return (
-
-<>
+  return ( 
+    <>
       <input 
         type="text" 
         placeholder="Search for a symptom" 
@@ -40,17 +40,15 @@ const Symptoms = ({handleAddConcern, user, concern}) => {
         {searchTerm ? 
           <ul className={styles.symptomList}>
             {filteredData.map((item)=> (
-              // <Link to="/chat/questions">
-                <li key={item.id} className={styles.symptomOptions} onClick={()=> handleAddConcern(item.name)} >
+                <li key={item.id} className={styles.symptomOptions} onClick={()=> handleClickSymptom(item.name)} >
                   {item.name}
                 </li>
-              // </Link>
             ))}
           </ul>
             : ''}
       </div>
     </>
    );
-  
 }
+ 
 export default Symptoms;
