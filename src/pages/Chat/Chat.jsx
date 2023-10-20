@@ -11,11 +11,12 @@ function Chat({user}) {
 
   const [symptom, setSymptom]= useState('')
   const [hpi, setHpi]= useState({})
-  let hpiComplete= false
+  const [hpiComplete, setHpiComplete]= useState(false)
 
   const handleAddHpi= (form) => {
     setHpi(form)
-    hpiComplete= true
+    setHpiComplete(true)
+    console.log("hpiComplete", hpiComplete)
     console.log("HPI:", hpi)
   }
 
@@ -43,12 +44,12 @@ function Chat({user}) {
           handleAddHpi={handleAddHpi}
         /> 
         : ''}
-      {/* {hpiComplete ? 
+      {hpiComplete ? 
         <Results 
           problem={hpi} 
           user={user}
         />
-        : ''} */}
+        : ''}
     </>
   )
 }

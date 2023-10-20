@@ -19,7 +19,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-  text-align: center;
+  /* text-align: center;  */
 }
 
 a,
@@ -74,6 +74,22 @@ h3{
   padding: 28px 24px;
   border-radius: 16px;
   width: 925px;
-  margin: 20px auto;
+  margin-left:20px auto;
   text-align: left; 
+}
+.hpiContainer{
+  border: 1px solid black;
+  background-color: white;
+  border-radius: 16px;
+  color: black;
+  width: 600px;
+  padding-left: 30px;
+  /* align-items: right; */
+}
+.user{
+  /* background-color: red; */
+  display: flex;
+  flex-direction: column;
+  /* width: 925px; */
+  align-items: center;
 }
