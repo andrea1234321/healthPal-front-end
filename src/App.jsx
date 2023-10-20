@@ -45,6 +45,7 @@ function App() {
 
   const handleAddProblem= (form) => {
     setProblem(form)
+    console.log("problem", problem)
   }
   
   const handleAddConcern= (userResponse) => {

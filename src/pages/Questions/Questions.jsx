@@ -168,9 +168,7 @@ const Questions = ({symptom, handleAddProblem, user}) => {
                 onChange={handleChange}
               />
             </div>
-            <Link to="/chat/results">
-              <button type="submit" className={styles.submit}>Submit</button>
-            </Link>
+            <button type="submit" className={styles.submit}>Submit</button>
           </form>
         </div>
       </>
