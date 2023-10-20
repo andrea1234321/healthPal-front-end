@@ -8,7 +8,7 @@ const VisitReason = ({user}) => {
   return (
     <>
       <header>
-        <h4>Welcome back, {user.name}!</h4>
+        <p className='greeting'>Welcome back, {user.name}!</p>
         <h2>How can we help you today?</h2>
       </header>
       <main className={styles.visitOptions}>
