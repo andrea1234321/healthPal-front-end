@@ -1,9 +1,9 @@
-import {useNavigate } from 'react-router-dom'
+// import {useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import styles from "./Questions.module.css"
+import styles from "./hpi.module.css"
 
-const Questions = ({symptom, handleAddProblem, user}) => {
+const Hpi = ({symptom, handleAddHpi, user}) => {
   const [form, setForm] = useState({
     concern: symptom,
     location: '',
@@ -17,7 +17,7 @@ const Questions = ({symptom, handleAddProblem, user}) => {
     otherSxs: '',
   })
 
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
    const handleChange = (evt) => {
     setForm({...form, [evt.target.name]: evt.target.value })
@@ -25,18 +25,18 @@ const Questions = ({symptom, handleAddProblem, user}) => {
 
   const handleSubmitForm = (evt) => {
     evt.preventDefault()
-    handleAddProblem(form)
+    handleAddHpi(form)
     console.log(form)
-    navigate('/chat/results')
+    // navigate('/chat/results')
   }
 
    return ( 
       <>
-        <div className={styles.questionsContainer}>
+        <div className={styles.hpiContainer}>
           {/* <h3 className={styles.symptom}>{symptom}</h3> */}
           {/* <div id="submit" onClick={handleSubmit}>➢</div> */}
           <form autoComplete="off" onSubmit={handleSubmitForm}>
-            <div className={styles.questionBlock}>
+            <div className={styles.hpiBlock}>
               <label htmlFor="location-input" className={styles.label}>Where is the {symptom} located?</label>
               <input
                 required
@@ -50,7 +50,7 @@ const Questions = ({symptom, handleAddProblem, user}) => {
                 onChange={handleChange}
               />
             </div>
-            <div className={styles.questionBlock}>
+            <div className={styles.hpiBlock}>
               <label htmlFor="duration-input" className={styles.label}>How long have you had the {symptom}</label>
               <div className={styles.lengthAnswers}>
                 <input
@@ -81,7 +81,7 @@ const Questions = ({symptom, handleAddProblem, user}) => {
                 </select>
               </div>
             </div>
-            <div className={styles.questionBlock}>
+            <div className={styles.hpiBlock}>
               <label htmlFor="quality-input" className={styles.label}>What does the {symptom} feel like?</label>
               <input
                 required
@@ -95,7 +95,7 @@ const Questions = ({symptom, handleAddProblem, user}) => {
                 onChange={handleChange}
               />
             </div>
-            <div className={styles.questionBlock}>
+            <div className={styles.hpiBlock}>
               <label htmlFor="severity-input" className={styles.label}>How intense is the {symptom}?</label>
               <select 
                 required 
@@ -110,7 +110,7 @@ const Questions = ({symptom, handleAddProblem, user}) => {
                 <option value="Severe">Severe: Intense and difficult to bear</option>
               </select>
             </div>
-            <div className={styles.questionBlock}>
+            <div className={styles.hpiBlock}>
               <label htmlFor="trigger-input" className={styles.label}>What triggered the {symptom}?</label>
               <input
                 required
@@ -124,7 +124,7 @@ const Questions = ({symptom, handleAddProblem, user}) => {
                 onChange={handleChange}
               />
             </div>
-            <div className={styles.questionBlock}>
+            <div className={styles.hpiBlock}>
               <label htmlFor="alleviatingFactors-input" className={styles.label}>What makes the {symptom} feel better?</label>
               <input
                 required
@@ -138,7 +138,7 @@ const Questions = ({symptom, handleAddProblem, user}) => {
                 onChange={handleChange}
               />
             </div>
-            <div className={styles.questionBlock}>
+            <div className={styles.hpiBlock}>
               <label htmlFor="exacerbatingFactors-input" className={styles.label}>What makes the {symptom} feel worse?</label>
               <input
                 required
@@ -152,7 +152,7 @@ const Questions = ({symptom, handleAddProblem, user}) => {
                 onChange={handleChange}
               />
             </div>
-            <div className={styles.questionBlockLast}>
+            <div className={styles.hpiBlockLast}>
               <label htmlFor="otherSxs-input" className={styles.label}>What other symptoms do you have that accompanies the {symptom}?</label>
               <input
                 required
@@ -173,4 +173,4 @@ const Questions = ({symptom, handleAddProblem, user}) => {
    )
 }
 
-export default Questions;
+export default Hpi;

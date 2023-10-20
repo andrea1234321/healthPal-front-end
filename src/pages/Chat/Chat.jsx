@@ -4,22 +4,22 @@ import { Routes, Route, useNavigate } from 'react-router-dom'
 
 // Components
 import Results from '../../components/Results/Results'
-import Symptoms from '../../components/Symptoms/Symptoms'
-import Questions from '../../components/Questions/Questions'
+import Symptom from '../../components/Symptom/Symptom'
+import Hpi from '../../components/Hpi/Hpi'
 
 function Chat({user}) {
 
-  const [concern, setConcern]= useState('')
-  const [problem, setProblem]= useState({})
+  const [symptom, setSymptom]= useState('')
+  const [hpi, setHpi]= useState({})
 
-  const handleAddProblem= (form) => {
-    setProblem(form)
-    console.log("problem", problem)
+  const handleAddHpi= (form) => {
+    setHpi(form)
+    console.log("HPI:", hpi)
   }
 
-  const handleAddConcern= (userResponse) => {
-    setConcern(userResponse)
-    console.log(concern)
+  const handleAddSymptom= (userResponse) => {
+    setSymptom(userResponse)
+    console.log(symptom)
   }
 
 
@@ -28,20 +28,20 @@ function Chat({user}) {
       <h4 className='note'>This tool is not a substitute for professional medical advice, diagnosis, or treatment. If you are experiencing a life-threatening emergency that requires immediate attention please call 911 or the number for your local emergency service.</h4>
       <p className="greetingQuestion">Hi {user.name}, what is your main concern today?</p>
 
-      <Symptoms
+      <Symptom
         user={user} 
-        handleAddConcern={handleAddConcern}
-        concern = {concern}
+        handleAddSymptom={handleAddSymptom}
+        symptom={symptom}
       />
       
-      <Questions 
+      <Hpi 
         user={user}
-        symptom={concern} 
-        handleAddProblem={handleAddProblem}
+        symptom={symptom} 
+        handleAddHpi={handleAddHpi}
       />
 
       <Results 
-        problem={problem} 
+        problem={hpi} 
         user={user}
       />
     </>

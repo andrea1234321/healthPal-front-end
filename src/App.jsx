@@ -9,9 +9,9 @@ import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import Results from './components/Results/Results'
-import Concern from './pages/Concern/Concern'
-import Symptoms from './components/Symptoms/Symptoms'
-import Questions from './components/Questions/Questions'
+import VisitReason from './pages/VisitReason/VisitReason'
+import Symptom from './components/Symptom/Symptom'
+import Hpi from './components/Hpi/Hpi'
 import Chat from './pages/Chat/Chat'
 
 // components
@@ -29,7 +29,7 @@ function App() {
   const [user, setUser] = useState(authService.getUser())
 
   const navigate = useNavigate()
-  const [concern, setConcern]= useState('')
+  const [symptom, setSymptom]= useState('')
   const [problem, setProblem]= useState({})
 
   const handleLogout = () => {
@@ -47,9 +47,9 @@ function App() {
     console.log("problem", problem)
   }
   
-  const handleAddConcern= (userResponse) => {
-    setConcern(userResponse)
-    console.log(concern)
+  const handleAddSymptom= (userResponse) => {
+    setSymptom(userResponse)
+    console.log(symptom)
   }
 
   // FOR DEMO PURPOSES ONLY
@@ -69,7 +69,7 @@ function App() {
       }
       await authService.login(formData)
       handleAuthEvt()
-      navigate('/chat/concern')
+      navigate('/chat/visit-reason')
     } catch (err) {
       console.log(err)
     }
@@ -121,10 +121,10 @@ function App() {
           }
         />
         <Route
-          path="/chat/concern"
+          path="/chat/visit-reason"
           element={ 
             <ProtectedRoute user={user}>
-              <Concern user={user}/>
+              <VisitReason user={user}/>
             </ProtectedRoute>
           }
         />
@@ -141,7 +141,7 @@ function App() {
           path="/chat/symptoms"
           element={ 
             <ProtectedRoute user={user}>
-              <Symptoms user={user} handleAddConcern={handleAddConcern}/>
+              <Symptom user={user} handleAddSymptom={handleAddSymptom}/>
             </ProtectedRoute>
           }
         />
@@ -149,7 +149,7 @@ function App() {
           path="/chat/questions"
           element={ 
             <ProtectedRoute user={user}>
-              <Questions user={user} symptom={concern} handleAddProblem={handleAddProblem}/>
+              <Questions user={user} symptom={symptom} handleAddProblem={handleAddProblem}/>
             </ProtectedRoute>
           }
         /> */}
