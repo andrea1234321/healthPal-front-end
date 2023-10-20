@@ -67,14 +67,14 @@ const Results = ({problem, user}) => {
         </section>
 
         <section className= 'exit-container'>
-          <Link to="/chat/questions">
+          {/* <Link to="/chat/questions"> */}
             <button>Thank you, finish demo</button>
-          </Link>
+          {/* </Link> */}
           <button>Save to my chat history</button>
           <p>If this doesn't seem right, you can start over.</p>
-          <Link to="/chat/questions">
+          {/* <Link to="/chat/questions"> */}
             <button>Start Over</button>
-          </Link>
+          {/* </Link> */}
         </section>
       </div>
 
