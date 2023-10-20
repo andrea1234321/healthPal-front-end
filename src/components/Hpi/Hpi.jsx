@@ -1,6 +1,5 @@
-// import {useNavigate } from 'react-router-dom'
+
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
 import styles from "./hpi.module.css"
 
 const Hpi = ({symptom, handleAddHpi, user}) => {
@@ -16,8 +15,8 @@ const Hpi = ({symptom, handleAddHpi, user}) => {
     exacerbatingFactors: '',
     otherSxs: '',
   })
+  const [formComplete, setFormComplete]= useState(false)
 
-  // const navigate = useNavigate()
 
    const handleChange = (evt) => {
     setForm({...form, [evt.target.name]: evt.target.value })
@@ -26,15 +25,30 @@ const Hpi = ({symptom, handleAddHpi, user}) => {
   const handleSubmitForm = (evt) => {
     evt.preventDefault()
     handleAddHpi(form)
+    setFormComplete(true)
     console.log(form)
-    // navigate('/chat/results')
   }
 
    return ( 
       <>
+      <p className="chatBubble">Can you tell me more about your {symptom}?</p>
+      {formComplete ? 
+        <div className='user'>
+          <p className="userBubble">These are all the symptoms I'm experiencing for my {symptom}:</p>
+          <div className='hpiContainer'>
+            <h3>{symptom}</h3>
+            <p>Location: {form.location}</p>
+            <p>Duration: {form.duration} {form.unit}</p>
+            <p>Feels like: {form.quality}</p>
+            <p>Intensity: {form.severity}</p>
+            <p>Triggered By: {form.trigger}</p>
+            <p>Alleviated By: {form.alleviatingFactors}</p>
+            <p>Exacerbated By: {form.exacerbatingFactors}</p>
+            <p>Accompanying symptoms: {form.otherSxs}</p>
+          </div>
+        </div>
+      : 
         <div className={styles.hpiContainer}>
-          {/* <h3 className={styles.symptom}>{symptom}</h3> */}
-          {/* <div id="submit" onClick={handleSubmit}>➢</div> */}
           <form autoComplete="off" onSubmit={handleSubmitForm}>
             <div className={styles.hpiBlock}>
               <label htmlFor="location-input" className={styles.label}>Where is the {symptom} located?</label>
@@ -59,7 +73,7 @@ const Hpi = ({symptom, handleAddHpi, user}) => {
                   type="number"
                   name="duration"
                   id="duration-input"
-                  placeholder="5 minutes, 3 days, 1 month, 2 years..."
+                  placeholder="enter a number"
                   value={form.duration}
                   className={styles.lengthInput}
                   maxLength={5}
@@ -159,7 +173,7 @@ const Hpi = ({symptom, handleAddHpi, user}) => {
                 type="text"
                 name="otherSxs"
                 id="otherSxs-input"
-                placeholder="Walking, stress, laying down, deep breathing..."
+                placeholder="Shortness of breath, headache, fever, coughing, unexplained weight loss..."
                 value={form.otherSxs}
                 className={styles.input}
                 maxLength={50}
@@ -169,6 +183,7 @@ const Hpi = ({symptom, handleAddHpi, user}) => {
             <button type="submit" className={styles.submit}>Submit</button>
           </form>
         </div>
+        }
       </>
    )
 }
