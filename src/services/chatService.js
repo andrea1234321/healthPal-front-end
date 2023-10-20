@@ -31,13 +31,16 @@ function stringifyProblemData(problem) {
   return res;
 }
 
+// const systemContent={
+
+// }
 async function getResultsFromAPI(problem) {
   try {
     const profileString = await stringifyProfileData();
     const problemString = stringifyProblemData(problem);
-    const message = profileString + problemString;
+    const userInput = profileString + problemString;
 
-    console.log("MESSAGE STRING:", message)
+    console.log("MESSAGE STRING:", userInput)
 
     const res = await fetch(`${BASE_URL}/results`, {
       method: 'POST',
@@ -46,7 +49,9 @@ async function getResultsFromAPI(problem) {
         Authorization: `Bearer ${tokenService.getToken()}`,
       },
       body: JSON.stringify({
-        message,
+        userInput,
+                // userMessage: userInput,
+        // systemMessage: 
       }),
     });
 

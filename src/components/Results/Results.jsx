@@ -3,12 +3,13 @@ import { useState, useEffect } from "react"
 
 // services
 import * as chatService from '../../services/chatService'
+import { Link } from "react-router-dom"
 
 // components
 import thumbsdown from '../../assets/icons/thumbsdown.svg'
 import thumbsup from '../../assets/icons/thumbsup.svg'
 
-const Results = ({problem}) => {
+const Results = ({problem, handleAddHpi, handleAddSymptom}) => {
   const [results, setResults] = useState(false)
   const [feedback, setFeedback] = useState(null)
 
@@ -17,8 +18,6 @@ const Results = ({problem}) => {
       try {
         const data = await chatService.getResultsFromAPI(problem)
         setResults(parseResults(data.choices[0].message.content))
-        // setResults(data.choices[0].message)
-        // const res = parseResults(results)
       } catch (error){
         console.error("Error fetching results from the API:", error);
       }
@@ -45,9 +44,16 @@ const Results = ({problem}) => {
     if (feedback !== false) setFeedback(false)
   }
 
+  const handleReset =() =>{
+    handleAddSymptom(false)
+    handleAddHpi(false)
+    setResults(false)
+    setFeedback(null)
+  }
+
   return (
     <>
-      <div className = 'chat'>
+      <div className = 'chatBubble'>
         <p>Thanks for describing your symptoms.</p>
         <p>The results I’m about to show you <b>is not a diagnosis or medical advice.</b> Please seek medical care if your symptoms seem serious. </p>
       </div>
@@ -55,7 +61,7 @@ const Results = ({problem}) => {
       {!results ?
         <p>Loading...</p>
       :
-        <div className = 'results-container'>
+        <div className= 'chatBubble'>
           {results.urgent === 'Yes' ?
             <h1>Alarming scenario detected</h1>
           :
@@ -78,14 +84,12 @@ const Results = ({problem}) => {
           </section>
 
           <section className= 'exit'>
-            {/* <Link to="/chat/questions"> */}
+            <Link to="/">
               <button>Thank you, finish demo</button>
-            {/* </Link> */}
+            </Link>
             <button>Save to my chat history</button>
             <p>If this doesn't seem right, you can start over.</p>
-            {/* <Link to="/chat/questions"> */}
-              <button>Start Over</button>
-            {/* </Link> */}
+            <button onClick={handleReset}>Start Over</button>
           </section>
         </div>
       }
