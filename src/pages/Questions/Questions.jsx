@@ -32,8 +32,6 @@ const Questions = ({symptom, handleAddProblem, user}) => {
 
    return ( 
       <>
-        <h4 className='note'>This tool is not a substitute for professional medical advice, diagnosis, or treatment. If you are experiencing a life-threatening emergency that requires immediate attention please call 911 or the number for your local emergency service.</h4>
-        <p className="greetingQuestion">Hi {user.name}, can you tell me a little bit more about the {symptom}?</p>
         <div className={styles.questionsContainer}>
           {/* <h3 className={styles.symptom}>{symptom}</h3> */}
           {/* <div id="submit" onClick={handleSubmit}>➢</div> */}

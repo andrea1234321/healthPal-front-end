@@ -3,7 +3,7 @@ import data from "../../data/data.json"
 import { Link } from 'react-router-dom'
 import styles from './Symptoms.module.css'
 
-const Symptoms = ({handleAddConcern, user}) => {
+const Symptoms = ({handleAddConcern, user, concern}) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredData, setFilteredData] = useState(data);
 
@@ -21,15 +21,14 @@ const Symptoms = ({handleAddConcern, user}) => {
   setFilteredData(filteredData);
   };
 
-  // const handleClickSymptom = (event) => {
-  //   setSearchTerm(event.target.innerHTML);
-  //   filterData(event.target.innerHTML);
-  // }
+  const handleClickSymptom = (event) => {
+    setSearchTerm(event.target.innerHTML);
+    filterData(event.target.innerHTML);
+  }
 
-  return ( 
-    <>
-      <h4 className='note'>This tool is not a substitute for professional medical advice, diagnosis, or treatment. If you are experiencing a life-threatening emergency that requires immediate attention please call 911 or the number for your local emergency service.</h4>
-      <p className="greetingQuestion">Hi {user.name}, what is your main concern today?</p>
+  return (
+
+<>
       <input 
         type="text" 
         placeholder="Search for a symptom" 
@@ -37,37 +36,21 @@ const Symptoms = ({handleAddConcern, user}) => {
         onChange={handleInputChange}
         className={styles.symptomInput}
         />
-      {/* <Link to="/chat/questions" >
-        <button onClick={()=> handleAddConcern(searchTerm)}>enter</button>
-      </Link>
-      <div>
-        {searchTerm ? 
-          <ul>
-            {filteredData.map((item)=> (
-              <li key={item.id} onClick={handleClickSymptom} >
-                {item.name}
-              </li>
-            ))}
-          </ul>
-            : ''} */}
-      {/* <Link to="/chat/questions" >
-        <button onClick={()=> handleAddConcern(searchTerm)}>enter</button>
-      </Link> */}
       <div>
         {searchTerm ? 
           <ul className={styles.symptomList}>
             {filteredData.map((item)=> (
-              <Link to="/chat/questions">
-                <li className={styles.symptomOptions} key={item.id} onClick={()=> handleAddConcern(item.name)} >
+              // <Link to="/chat/questions">
+                <li key={item.id} className={styles.symptomOptions} onClick={()=> handleAddConcern(item.name)} >
                   {item.name}
                 </li>
-              </Link>
+              // </Link>
             ))}
           </ul>
             : ''}
       </div>
     </>
    );
+  
 }
- 
 export default Symptoms;

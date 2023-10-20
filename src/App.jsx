@@ -12,6 +12,7 @@ import Results from './pages/Results/Results'
 import Concern from './pages/Concern/Concern'
 import Symptoms from './pages/Symptoms/Symptoms'
 import Questions from './pages/Questions/Questions'
+import Chat from './pages/Chat/Chat'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -19,7 +20,6 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 
 // services
 import * as authService from './services/authService'
-// import * as chatService from './services/chatService'
 
 // styles
 import './App.css'
@@ -27,7 +27,6 @@ import './App.css'
 function App() {
 
   const [user, setUser] = useState(authService.getUser())
-  // const [results, setResults] = useState([])
 
   const navigate = useNavigate()
   const [concern, setConcern]= useState('')
@@ -114,6 +113,14 @@ function App() {
           }
         />
         <Route
+          path="/chat"
+          element={
+            <ProtectedRoute user={user}>
+              <Chat user={user}/>
+            </ProtectedRoute>
+          }
+        />
+        <Route
           path="/chat/concern"
           element={ 
             <ProtectedRoute user={user}>
@@ -121,6 +128,7 @@ function App() {
             </ProtectedRoute>
           }
         />
+        {/* 
         <Route
           path="/chat/results"
           element={ 
@@ -144,7 +152,7 @@ function App() {
               <Questions user={user} symptom={concern} handleAddProblem={handleAddProblem}/>
             </ProtectedRoute>
           }
-        />
+        /> */}
       </Routes>
     </>
   )
