@@ -57,9 +57,20 @@ h3{
   width: 925px;
   margin: 20px auto;
 }
-.greetingQuestion{
-  background-color: grey;
-  border: 1px solid white;
+.chatBubble{
+  background-color: #B0CDC5;
+  color:black;
+  border: 1px solid ;
+  padding: 28px 24px;
+  border-radius: 16px;
+  width: 925px;
+  margin: 20px auto;
+  text-align: left; 
+}
+.userBubble{
+  background-color: #00533B;
+  color:white;
+  border: 1px solid black;
   padding: 28px 24px;
   border-radius: 16px;
   width: 925px;

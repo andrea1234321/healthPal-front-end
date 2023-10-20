@@ -11,9 +11,11 @@ function Chat({user}) {
 
   const [symptom, setSymptom]= useState('')
   const [hpi, setHpi]= useState({})
+  let hpiComplete= false
 
   const handleAddHpi= (form) => {
     setHpi(form)
+    hpiComplete= true
     console.log("HPI:", hpi)
   }
 
@@ -26,7 +28,7 @@ function Chat({user}) {
   return (
     <>
       <h4 className='note'>This tool is not a substitute for professional medical advice, diagnosis, or treatment. If you are experiencing a life-threatening emergency that requires immediate attention please call 911 or the number for your local emergency service.</h4>
-      <p className="greetingQuestion">Hi {user.name}, what is your main concern today?</p>
+      <p className="chatBubble">Hi {user.name}, what is your main concern today?</p>
 
       <Symptom
         user={user} 
@@ -34,16 +36,19 @@ function Chat({user}) {
         symptom={symptom}
       />
       
-      <Hpi 
-        user={user}
-        symptom={symptom} 
-        handleAddHpi={handleAddHpi}
-      />
-
-      <Results 
-        problem={hpi} 
-        user={user}
-      />
+      {symptom ? 
+        <Hpi 
+          user={user}
+          symptom={symptom} 
+          handleAddHpi={handleAddHpi}
+        /> 
+        : ''}
+      {/* {hpiComplete ? 
+        <Results 
+          problem={hpi} 
+          user={user}
+        />
+        : ''} */}
     </>
   )
 }
