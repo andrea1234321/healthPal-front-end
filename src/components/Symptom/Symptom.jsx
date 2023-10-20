@@ -7,6 +7,9 @@ const Symptom = ({handleAddSymptom, user}) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredData, setFilteredData] = useState(data);
   // const navigate= useNavigate()
+  const [symptomAdded, setSymptomAdded] = useState(false)
+  // let symptomAdded= false
+  console.log("symptom added before:", symptomAdded)
 
   const handleInputChange = (event) => {
     const {value} = event.target;
@@ -21,21 +24,31 @@ const Symptom = ({handleAddSymptom, user}) => {
   setFilteredData(filteredData);
   };
 
-  const handleClickSymptom = (item) => {
-    console.log("item:", item)
-    handleAddSymptom(item)
+  const handleClickSymptom = (symptom) => {
+    console.log("symptom:", symptom)
+    setSearchTerm(symptom)
+    handleAddSymptom(symptom)
+    setSymptomAdded(true)
+    console.log('symptom added?', symptomAdded)
+    console.log("searchTerm", searchTerm)
     // navigate('/chat/questions')
   }
 
   return ( 
     <>
+      {symptomAdded ? 
+      <div>
+          <p className="userBubble">I have {searchTerm}</p>
+        </div>
+      :   
+      <>
       <input 
-        type="text" 
-        placeholder="Search for a symptom" 
-        value={searchTerm}
-        onChange={handleInputChange}
-        className={styles.symptomInput}
-        />
+      type="text" 
+      placeholder="Search for a symptom" 
+      value={searchTerm}
+      onChange={handleInputChange}
+      className={styles.symptomInput}
+      />
       <div>
         {searchTerm ? 
           <ul className={styles.symptomList}>
@@ -47,6 +60,10 @@ const Symptom = ({handleAddSymptom, user}) => {
           </ul>
             : ''}
       </div>
+      </>
+    }
+  
+        
     </>
    );
 }
