@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import data from "../../data/data.json"
-import styles from './Symptoms.module.css'
+import styles from './Symptom.module.css'
 
-const Symptoms = ({handleAddConcern, user}) => {
+const Symptom = ({handleAddSymptom, user}) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredData, setFilteredData] = useState(data);
-  const navigate= useNavigate()
+  // const navigate= useNavigate()
 
   const handleInputChange = (event) => {
     const {value} = event.target;
@@ -23,7 +23,7 @@ const Symptoms = ({handleAddConcern, user}) => {
 
   const handleClickSymptom = (item) => {
     console.log("item:", item)
-    handleAddConcern(item)
+    handleAddSymptom(item)
     // navigate('/chat/questions')
   }
 
@@ -51,4 +51,4 @@ const Symptoms = ({handleAddConcern, user}) => {
    );
 }
  
-export default Symptoms;
+export default Symptom;
