@@ -16,12 +16,29 @@ async function stringifyProfileData() {
   }
 }
 
-async function getResultsFromAPI(problemString) {
+function stringifyProblemData(problem) {
+  const res = `
+    The following information is the patient's complaint:
+    Primary symptom: ${problem.concern}
+    Location of symptom: ${problem.location}
+    Duration of symptom: ${problem.duration} ${problem.unit}
+    Feels like: ${problem.quality}
+    Triggers of symptom: ${problem.trigger}
+    Pain intensity: ${problem.severity}
+    Alleviating factors: ${problem.alleviatingFactors}
+    Exacerbating factors: ${problem.exacerbatingFactors}
+    Accompanying symptoms: ${problem.otherSxs}
+  `;
+  return res;
+}
+
+async function getResultsFromAPI(problem) {
   try {
-    console.log("PROBLEM STRING:", problemString)
-    // Fetch and stringify profile data
     const profileString = await stringifyProfileData();
+    const problemString = stringifyProblemData(problem);
     const message = profileString + problemString;
+
+    console.log("MESSAGE STRING:", message)
 
     const res = await fetch(`${BASE_URL}/results`, {
       method: 'POST',
