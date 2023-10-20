@@ -1,38 +1,31 @@
-/* .note{
-  background-color: grey;
-  border-radius: 16px;
-  padding: 24px;
-  text-align: left;
-  width: 925px;
-  margin: 20px auto;
-}
-.greetingQuestion{
-  background-color: grey;
-  border: 1px solid white;
-  padding: 28px 24px;
-  border-radius: 16px;
-  width: 925px;
-  margin: 20px auto;
-  text-align: left; 
-} */
 .symptomInput{
-  width: 925px;
-  border-radius: 16px;
-  padding: 16px 24px;
-  display: flex;
-  margin: 0 auto;
+  border-radius: 8px;
+  padding: 24px 16px;
+  border: 1px solid #CAC5CD;
+  width: 100%;
+  margin-left: 0;
+  font-size: 18px;
+  font-weight: 400;
+  box-shadow: 0px 0px 1px 0px rgba(33, 37, 41, 0.08), 0px 2px 2px 0px rgba(33, 37, 41, 0.06);
 }
 .symptomList{
+  /* background-color: paleturquoise; */
+  text-align: left;
   margin: 0 auto;
   padding: 0;
-  width: 925px;
+  color: #00533B;
+  font-size: 16px;
+  font-weight: 400;
+  /* width: 925px; */
 }
 .symptomOptions{
+  padding: 16px 16px 16px 44px !important;
   list-style-type: none;
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid #DEE2E6;
   padding: 12px;
 }
 .symptomOptions:hover{
-  background-color: grey;
+  background-color: #DEE2E6;
+  cursor: pointer;
   border-radius: 16px;
 }

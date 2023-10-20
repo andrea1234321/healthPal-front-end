@@ -31,24 +31,32 @@ const Hpi = ({symptom, handleAddHpi, user}) => {
 
    return ( 
       <>
-      <p className="chatBubble">Can you tell me more about your {symptom}?</p>
+      <div className='chatContainer'>
+        <p className="chatBubble">Can you tell me more about your {symptom}?</p>
+      </div>
       {formComplete ? 
-        <div className='user'>
-          <p className="userBubble">These are all the symptoms I'm experiencing for my {symptom}:</p>
-          <div className='hpiContainer'>
-            <h3>{symptom}</h3>
-            <p>Location: {form.location}</p>
-            <p>Duration: {form.duration} {form.unit}</p>
-            <p>Feels like: {form.quality}</p>
-            <p>Intensity: {form.severity}</p>
-            <p>Triggered By: {form.trigger}</p>
-            <p>Alleviated By: {form.alleviatingFactors}</p>
-            <p>Exacerbated By: {form.exacerbatingFactors}</p>
-            <p>Accompanying symptoms: {form.otherSxs}</p>
+        <div className='userContainer'>
+          <div className='user'>
+            <p className="userBubble">These are all the symptoms I'm experiencing for my {symptom}:</p>
+            <div className='hpiBubble'>
+              <p className='hpiSymptom'>{symptom}</p>
+              <div className='hpi'>
+                <p><span className='category'>Location:</span> {form.location}</p>
+                <p><span className='category'>Duration:</span>{form.duration} {form.unit}</p>
+                <p><span className='category'>Quality:</span> {form.quality}</p>
+                <p><span className='category'>Severity:</span> {form.severity}</p>
+                <p><span className='category'>Triggered By:</span> {form.trigger}</p>
+                <p><span className='category'>Alleviated By:</span>{form.alleviatingFactors}</p>
+                <p><span className='category'>Exacerbated By:</span> {form.exacerbatingFactors}</p>
+                <p><span className='category'>Accompanying Symptoms:</span> {form.otherSxs}</p>
+              </div>
+            </div>
           </div>
         </div>
       : 
         <div className={styles.hpiContainer}>
+          <p>{symptom}</p>
+          <hr class="solid"></hr>
           <form autoComplete="off" onSubmit={handleSubmitForm}>
             <div className={styles.hpiBlock}>
               <label htmlFor="location-input" className={styles.label}>Where is the {symptom} located?</label>
@@ -64,6 +72,7 @@ const Hpi = ({symptom, handleAddHpi, user}) => {
                 onChange={handleChange}
               />
             </div>
+            <hr class="solid"></hr>
             <div className={styles.hpiBlock}>
               <label htmlFor="duration-input" className={styles.label}>How long have you had the {symptom}</label>
               <div className={styles.lengthAnswers}>
@@ -95,6 +104,7 @@ const Hpi = ({symptom, handleAddHpi, user}) => {
                 </select>
               </div>
             </div>
+            <hr class="solid"></hr>
             <div className={styles.hpiBlock}>
               <label htmlFor="quality-input" className={styles.label}>What does the {symptom} feel like?</label>
               <input
@@ -109,6 +119,7 @@ const Hpi = ({symptom, handleAddHpi, user}) => {
                 onChange={handleChange}
               />
             </div>
+            <hr class="solid"></hr>
             <div className={styles.hpiBlock}>
               <label htmlFor="severity-input" className={styles.label}>How intense is the {symptom}?</label>
               <select 
@@ -124,6 +135,7 @@ const Hpi = ({symptom, handleAddHpi, user}) => {
                 <option value="Severe">Severe: Intense and difficult to bear</option>
               </select>
             </div>
+            <hr class="solid"></hr>
             <div className={styles.hpiBlock}>
               <label htmlFor="trigger-input" className={styles.label}>What triggered the {symptom}?</label>
               <input
@@ -138,6 +150,7 @@ const Hpi = ({symptom, handleAddHpi, user}) => {
                 onChange={handleChange}
               />
             </div>
+            <hr class="solid"></hr>
             <div className={styles.hpiBlock}>
               <label htmlFor="alleviatingFactors-input" className={styles.label}>What makes the {symptom} feel better?</label>
               <input
@@ -152,6 +165,7 @@ const Hpi = ({symptom, handleAddHpi, user}) => {
                 onChange={handleChange}
               />
             </div>
+            <hr class="solid"></hr>
             <div className={styles.hpiBlock}>
               <label htmlFor="exacerbatingFactors-input" className={styles.label}>What makes the {symptom} feel worse?</label>
               <input
@@ -166,7 +180,8 @@ const Hpi = ({symptom, handleAddHpi, user}) => {
                 onChange={handleChange}
               />
             </div>
-            <div className={styles.hpiBlockLast}>
+            <hr class="solid"></hr>
+            <div className={styles.hpiBlock}>
               <label htmlFor="otherSxs-input" className={styles.label}>What other symptoms do you have that accompanies the {symptom}?</label>
               <input
                 required

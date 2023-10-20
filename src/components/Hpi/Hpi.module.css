@@ -1,9 +1,16 @@
 .hpiContainer{
   border-top: 4px solid white;
-  /* background-color: red; */
-  width: 925px;
-  padding: 12px;
-  margin: 0 auto;
+  padding: 32px 16px;
+  margin: 8px auto;
+  border-top: 2px solid #00533B;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 100%;
+}
+.hpiContainer> p{
+  font-size: 28px;
+  font-weight: 400;
+  text-align: left;
+  margin: 8px 0;
 }
 .symptom{
   text-align: left;
@@ -14,58 +21,68 @@
 }
 .input{
   width: 100%;
-  border-radius: 16px;
-  padding: 16px 24px;
+  border: 1px solid #CAC5CD;
+  border-radius: 8px;
+  padding: 16px;
   display: flex;
   margin: 0 auto;
+  box-shadow: 0px 0px 1px 0px rgba(33, 37, 41, 0.08), 0px 2px 2px 0px rgba(33, 37, 41, 0.06);
 }
 .label{
   text-align: left;
   /* background-color: red; */
-  margin: 20px 0;
-  padding-bottom: 10px;
+  margin-bottom: 16px;
+  font-size: 16px;
+  font-weight: 600;
 }
 .hpiBlock{
   /* background-color: purple; */
   display: flex;
   flex-direction: column;
-  padding-bottom: 30px;
-  border-bottom: 2px solid white;
+  padding: 16px 0;
 }
-.hpiBlockLast{
-  /* background-color: purple; */
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 30px;
 
-}
 .lengthAnswers{
-  /* background-color: red; */
   display: flex;
 }
 .lengthInput{
-  width: 20%;
-  border-radius: 16px;
-  padding: 16px 24px;
+  width: 25%;
+  border-radius: 8px;
+  padding: 16px;
+  border: 1px solid #CAC5CD;
   margin-left: 0;
+  margin-right: 10px;
+  box-shadow: 0px 0px 1px 0px rgba(33, 37, 41, 0.08), 0px 2px 2px 0px rgba(33, 37, 41, 0.06);
 }
 .lengthSelect{
-  border-radius: 16px;
-  padding: 16px 24px;
-  width: 20%;
+  width: 30%;
+  border-radius: 8px;
+  padding: 16px;
+  border: 1px solid #CAC5CD;
+  margin-left: 0;
+  box-shadow: 0px 0px 1px 0px rgba(33, 37, 41, 0.08), 0px 2px 2px 0px rgba(33, 37, 41, 0.06);
 }
 .severitySelect{
-  border-radius: 16px;
-  padding: 16px 24px;
-  width: 50%;
+  width: 60%;
+  border-radius: 8px;
+  padding: 16px;
+  border: 1px solid #CAC5CD;
+  margin-left: 0;
+  box-shadow: 0px 0px 1px 0px rgba(33, 37, 41, 0.08), 0px 2px 2px 0px rgba(33, 37, 41, 0.06);
 }
 .submit{
-  background-color: white;
-  border-radius: 16px;
-  padding: 16px 24px;
+  margin: 16px 0; 
+  background-color: #00533B;
+  border-radius: 8px;
+  padding: 16px;
   width: 100%;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  color: white;
 }
 .submit:hover{
   background-color: grey;
   cursor: pointer;
+}
+hr{
+  margin: 16px 0;
 }
