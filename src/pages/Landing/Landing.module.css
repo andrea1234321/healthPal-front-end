@@ -1,29 +1,32 @@
+/* body{
+  background-image: url('../../assets/images/background.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+} */
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-color: #00533B;
-  height: 100vh;
+  height: 91.5vh;
 }
 .landingGreeting{
   text-transform: uppercase;
-  color: white;
+  color: #00533B;
   font-size: 18px;
   font-weight: 700;
   margin-bottom: 44px;
 }
 .appGoal{
-  color: white;
-  margin: 0 500px 64px 500px;
-  font-weight: 700;
+  margin-bottom: 64px;
 }
-/* .container > a{
-  margin: 0;
-} */
+
 .buttonDemo{
   border-radius: 8px;
+  background-color: #00533B;
+  color: white;
   width: 300px;
   height: 56px;
   padding: 16px;

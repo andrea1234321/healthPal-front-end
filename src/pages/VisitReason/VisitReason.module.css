@@ -4,6 +4,9 @@
   align-items: center;
   /* background-color: red; */
 }
+.visitOptions > h1{
+  margin-bottom: 42px;
+}
 .visitButton{
   width: 925px;
   padding: 64px;
@@ -18,4 +21,12 @@
   cursor: pointer;
   background-color: grey;
   transition: .2s;
+}
+main> a{
+  width: 100%;
+}
+.p{
+  color: #1D1B20;
+  font-size: 18px;
+  margin: 0 0 4px 0 !important;
 }

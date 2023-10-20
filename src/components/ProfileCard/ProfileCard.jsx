@@ -9,27 +9,27 @@ import styles from './ProfileCard.module.css'
 const ProfileCard = ({profile, handleProfile}) => {
 
   return (
-    <button onClick={()=> handleProfile(profile.name)} className={styles.profiles}>
-      <h2>{profile.name}</h2>
+    <button onClick={()=> handleProfile(profile.name)} className="containerButtons">
+      <h3>{profile.name}</h3>
       <div className={styles.profileLabel}>
         <p>Sex assigned at birth:</p>
-        <p>{profile.sex}</p>
+        <p className={styles.profileInfo}>{profile.sex}</p>
       </div>
       <div className={styles.profileLabel}>
         <p>Year of Birth:</p>
-        <p>{profile.birthYear}</p>
+        <p className={styles.profileInfo}>{profile.birthYear}</p>
       </div>
       <div className={styles.profileLabel}>
         <p>Weight:</p>
-        <p>{profile.weight} lbs</p>
+        <p className={styles.profileInfo}>{profile.weight} lbs</p>
       </div>
       <div className={styles.profileLabel}>
         <p>Height:</p>
-        <p>{profile.height} inches</p>
+        <p className={styles.profileInfo}>{profile.height} inches</p>
       </div>
       <div className={styles.profileLabel}>
         <p>Medical History:</p>
-        <p>{profile.medicalHx}</p>
+        <p className={styles.profileInfo}>{profile.medicalHx}</p>
       </div>
     </button>
   )
