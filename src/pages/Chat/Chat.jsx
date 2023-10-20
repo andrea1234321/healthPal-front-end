@@ -12,10 +12,11 @@ function Chat({user}) {
   const [symptom, setSymptom]= useState('')
   const [hpi, setHpi]= useState({})
   const [hpiComplete, setHpiComplete]= useState(false)
+  const [symptomAdded, setSymptomAdded] = useState(false)
 
   const handleAddHpi= (form) => {
     setHpi(form)
-    setHpiComplete(true)
+    setHpiComplete(!hpiComplete)
     console.log("hpiComplete", hpiComplete)
     console.log("HPI:", hpi)
   }
@@ -23,6 +24,8 @@ function Chat({user}) {
   const handleAddSymptom= (userResponse) => {
     setSymptom(userResponse)
     console.log(symptom)
+    setSymptomAdded(!symptomAdded)
+    console.log(symptomAdded)
   }
 
 
@@ -35,6 +38,7 @@ function Chat({user}) {
         user={user} 
         handleAddSymptom={handleAddSymptom}
         symptom={symptom}
+        symptomAdded= {symptomAdded}
       />
       
       {symptom ? 
@@ -42,12 +46,14 @@ function Chat({user}) {
           user={user}
           symptom={symptom} 
           handleAddHpi={handleAddHpi}
+          symptomAdded={symptomAdded}
         /> 
         : ''}
       {hpiComplete ? 
         <Results 
           problem={hpi} 
-          user={user}
+          handleAddHpi={handleAddHpi}
+          handleAddSymptom={handleAddSymptom}
         />
         : ''}
     </>

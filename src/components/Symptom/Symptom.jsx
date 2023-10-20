@@ -3,10 +3,9 @@ import { useNavigate } from "react-router-dom";
 import data from "../../data/data.json"
 import styles from './Symptom.module.css'
 
-const Symptom = ({handleAddSymptom, user}) => {
+const Symptom = ({handleAddSymptom, symptom, symptomAdded}) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredData, setFilteredData] = useState(data);
-  const [symptomAdded, setSymptomAdded] = useState(false)
 
   const handleInputChange = (event) => {
     const {value} = event.target;
@@ -24,14 +23,19 @@ const Symptom = ({handleAddSymptom, user}) => {
   const handleClickSymptom = (symptom) => {
     setSearchTerm(symptom)
     handleAddSymptom(symptom)
-    setSymptomAdded(true)
+    setSearchTerm('')
+    // setSymptomAdded(true)
   }
+
+  // if (!symptomAdded){
+  //   setSearchTerm('')
+  // }
 
   return ( 
     <>
       {symptomAdded ? 
         <div className="user">
-          <p className="userBubble">My current symptom is: {searchTerm}</p>
+          <p className="userBubble">My current symptom is: {symptom}</p>
         </div>
       :   
       <>
