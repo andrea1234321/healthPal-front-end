@@ -3,9 +3,9 @@ import { useState, useEffect } from 'react'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 
 // Components
-import Results from '../Results/Results'
-import Symptoms from '../Symptoms/Symptoms'
-import Questions from '../Questions/Questions'
+import Results from '../../components/Results/Results'
+import Symptoms from '../../components/Symptoms/Symptoms'
+import Questions from '../../components/Questions/Questions'
 
 function Chat({user}) {
 

@@ -8,10 +8,10 @@ import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
-import Results from './pages/Results/Results'
+import Results from './components/Results/Results'
 import Concern from './pages/Concern/Concern'
-import Symptoms from './pages/Symptoms/Symptoms'
-import Questions from './pages/Questions/Questions'
+import Symptoms from './components/Symptoms/Symptoms'
+import Questions from './components/Questions/Questions'
 import Chat from './pages/Chat/Chat'
 
 // components
