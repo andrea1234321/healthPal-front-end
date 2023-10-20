@@ -30,10 +30,11 @@ function Chat({user}) {
 
 
   return (
-    <>
-      <h4 className='note'>This tool is not a substitute for professional medical advice, diagnosis, or treatment. If you are experiencing a life-threatening emergency that requires immediate attention please call 911 or the number for your local emergency service.</h4>
-      <p className="chatBubble">Hi {user.name}, what is your main concern today?</p>
-
+    <main>
+      <p className='note'>This tool is not a substitute for professional medical advice, diagnosis, or treatment. If you are experiencing a life-threatening emergency that requires immediate attention please call 911 or the number for your local emergency service.</p>
+      <div className='chatContainer'>
+        <p className="chatBubble">Hi {user.name}, what is your main concern today?</p>
+      </div>
       <Symptom
         user={user} 
         handleAddSymptom={handleAddSymptom}
@@ -56,7 +57,7 @@ function Chat({user}) {
           handleAddSymptom={handleAddSymptom}
         />
         : ''}
-    </>
+    </main>
   )
 }
 

@@ -67,48 +67,65 @@ h3{
 }
 
 .note{
-  background-color: grey;
+  background-color: #DEE2E6;
   border-radius: 16px;
-  padding: 24px;
+  padding:32px;
   text-align: left;
-  width: 925px;
-  margin: 20px auto;
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 32px;
+  margin-bottom: 8px;
+}
+.chatContainer{
+  /* background-color: purple; */
+  width: 100%;
+  display: flex;
 }
 .chatBubble{
   background-color: #B0CDC5;
   color:black;
-  border: 1px solid ;
-  padding: 28px 24px;
-  border-radius: 16px;
-  width: 925px;
-  margin: 20px auto;
-  text-align: left; 
+  padding: 32px;
+  border-radius: 0px 16px 16px 16px;
+  margin: 8px 0;
+  font-size: 18px;
+  font-weight: 400;
+  width: 75%;
+  text-align: left;
+}
+.userContainer{
+  /* background-color: purple; */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* background-color: red; */
+}
+.user{
+  /* background-color: purple; */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 .userBubble{
   background-color: #00533B;
   color:white;
-  border: 1px solid black;
-  padding: 28px 24px;
-  border-radius: 16px;
-  width: 925px;
-  margin-left:20px auto;
-  text-align: left; 
+  padding: 32px;
+  border-radius: 16px 16px 0px 16px;
+  margin: 8px 0;
+  font-size: 18px;
+  font-weight: 400;
+  width: 75%;
+  text-align: left;
 }
-.hpiContainer{
-  border: 1px solid black;
+.hpiBubble{
+  border: 1px solid #A1C181;
   background-color: white;
   border-radius: 16px;
+  padding: 32px;
   color: black;
-  width: 600px;
-  padding-left: 30px;
-  /* align-items: right; */
-}
-.user{
-  /* background-color: red; */
-  display: flex;
-  flex-direction: column;
-  /* width: 925px; */
-  align-items: center;
+  width: 50%;
+  text-align: left;
+  margin: 8px 0;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 .greeting{
@@ -132,4 +149,20 @@ h3{
 }
 .containerButtons:hover{
   cursor: pointer;
+}
+.hpiSymptom{
+  color:#00533B;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0 0 16px 0;
+}
+.hpi{
+  margin: 16px 0;
+}
+.hpi .category{
+  color: #938F96;
+}
+.hpi> p{
+  margin: 2px;
 }
