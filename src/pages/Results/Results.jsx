@@ -4,26 +4,18 @@ import { useState, useEffect } from "react"
 // services
 import * as chatService from '../../services/chatService'
 
-const Results = ({problem, user}) => {
-  
-  const [results, setResults] = useState(false)
+// components
+import thumbsdown from '../../assets/icons/thumbsdown.svg'
+import thumbsup from '../../assets/icons/thumbsup.svg'
 
-  const problemString = `
-    Primary symptom: ${problem.concern}
-    Location of symptom: ${problem.location}
-    Duration of symptom: ${problem.duration} ${problem.unit}
-    Feels like: ${problem.quality}
-    Triggers of symptom: ${problem.trigger}
-    Pain intensity: ${problem.severity}
-    Alleviating factors: ${problem.alleviatingFactors}
-    Exacerbating factors: ${problem.exacerbatingFactors}
-    Accompanying symptoms: ${problem.otherSxs}
-  `
+const Results = ({problem, user}) => {
+  const [results, setResults] = useState(false)
+  const [feedback, setFeedback] = useState(null)
 
   useEffect(() => {   
     const fetchResults = async() =>{
       try {
-        const data = await chatService.getResultsFromAPI(problemString)
+        const data = await chatService.getResultsFromAPI(problem)
         setResults(data.choices[0].message)
       } catch (error){
         console.error("Error fetching results from the API:", error);
@@ -32,10 +24,19 @@ const Results = ({problem, user}) => {
     if (!results) fetchResults()
   },[])
 
+  const handleThumbsUpClick =() =>{
+    if (feedback !== true) setFeedback(true)
+  }
+
+  const handleThumbsDownClick =() =>{
+    if (feedback !== false) setFeedback(false)
+  }
+
   return (
     <>
       <h4 className='note'>This tool is not a substitute for professional medical advice, diagnosis, or treatment. If you are experiencing a life-threatening emergency that requires immediate attention please call 911 or the number for your local emergency service.</h4>
       <p className="greetingQuestion">Hi {user.name}, can you tell me a little bit more about the {problem.concern}?</p>
+
       <p>These are the details for my {problem.concern}:</p>
       <div>
         <p>{problem.concern}</p>
@@ -55,9 +56,31 @@ const Results = ({problem, user}) => {
       <div>
         <p>Based on what you told me, here’s what we recommend you should do next for your immediate problem:</p>
       </div>
-      <div>
+      <div className = 'results-container'>
         {!results ? <p>Loading...</p> : <p>{results.content}</p>}
+
+        <section className= 'feedback-container'>
+          <p>Was the recommendation reasonable?</p>
+          <button onClick={handleThumbsUpClick} className={feedback ? 'selected': ''}>
+            <img className="icon" src={thumbsup} alt= 'A thumbsup icon' />
+          </button>
+          <button onClick={handleThumbsDownClick} className={feedback === false ? 'selected': ''}>
+              <img className="icon" src={thumbsdown} alt= 'A thumbsdown icon' />
+          </button>
+        </section>
+
+        <section className= 'exit-container'>
+          <Link to="/chat/questions">
+            <button>Thank you, finish demo</button>
+          </Link>
+          <button>Save to my chat history</button>
+          <p>If this doesn't seem right, you can start over.</p>
+          <Link to="/chat/questions">
+            <button>Start Over</button>
+          </Link>
+        </section>
       </div>
+
     </>
   );
 }
