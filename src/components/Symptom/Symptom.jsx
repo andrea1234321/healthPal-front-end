@@ -32,7 +32,7 @@ const Symptom = ({handleAddSymptom, symptom, symptomAdded}) => {
   // }
 
   return ( 
-    <>
+    <div className="userContainer">
       {symptomAdded ? 
         <div className="user">
           <p className="userBubble">My current symptom is: {symptom}</p>
@@ -61,7 +61,7 @@ const Symptom = ({handleAddSymptom, symptom, symptomAdded}) => {
     }
   
         
-    </>
+    </div>
    );
 }
  
