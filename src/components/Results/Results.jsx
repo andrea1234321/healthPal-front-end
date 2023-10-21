@@ -1,5 +1,5 @@
 // npm modules
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 
 // services
 import * as chatService from '../../services/chatService'
@@ -14,12 +14,14 @@ import styles from './Results.module.css'
 const Results = ({problem, handleAddHpi, handleAddSymptom}) => {
   const [results, setResults] = useState(false)
   const [feedback, setFeedback] = useState(null)
+  const resultsRef= useRef()
 
   useEffect(() => {   
     const fetchResults = async() =>{
       try {
         const data = await chatService.getResultsFromAPI(problem)
         setResults(parseResults(data.choices[0].message.content))
+        handleScrollToResults()
       } catch (error){
         console.error("Error fetching results from the API:", error);
       }
@@ -54,6 +56,10 @@ const Results = ({problem, handleAddHpi, handleAddSymptom}) => {
     setFeedback(null)
   }
 
+  function handleScrollToResults(){
+    resultsRef.current.scrollIntoView({ behavior: "smooth"})
+  }
+
   return (
     <>
       <div className = 'chatContainer'>
@@ -64,7 +70,7 @@ const Results = ({problem, handleAddHpi, handleAddSymptom}) => {
       {!results ?
         <p>I'm working on it...</p>
       :
-      <div className="chatContainer">
+      <div className="chatContainer" ref={resultsRef}>
         <div className={`resultsBubble ${styles.results} ${results.urgent === 'Yes' ? styles.warning : styles.ok}`}>
 
           <section className={styles.title}>
