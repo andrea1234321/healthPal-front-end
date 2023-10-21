@@ -23,6 +23,7 @@
   height: 40px;
   display: flex;
   align-items: center;
+  margin-bottom: 16px;
 }
 
 .profileName img {
