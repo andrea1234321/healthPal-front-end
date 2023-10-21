@@ -2,6 +2,7 @@
   border-radius: 8px;
   padding: 24px 16px;
   border: 1px solid #CAC5CD;
+  margin: 8px 0;
   width: 100%;
   margin-left: 0;
   font-size: 18px;
@@ -25,7 +26,7 @@
   padding: 12px;
 }
 .symptomOptions:hover{
-  background-color: #DEE2E6;
+  background-color: #F5F5F5;
   cursor: pointer;
-  border-radius: 16px;
+  border-radius: 8px;
 }

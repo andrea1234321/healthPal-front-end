@@ -36,6 +36,8 @@
 }
 .buttonDemo:hover{
   cursor: pointer;
+  background-color: #A1C181;
+  border: none;
 }
 .buttonDemo:active{
   box-shadow:none;

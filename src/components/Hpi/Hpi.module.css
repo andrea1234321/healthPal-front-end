@@ -15,7 +15,6 @@
 .symptom{
   text-align: left;
   margin: 0;
-  /* background-color: red; */
   padding-bottom: 8px;
   border-bottom: 3px solid grey;
 }
@@ -30,13 +29,11 @@
 }
 .label{
   text-align: left;
-  /* background-color: red; */
   margin-bottom: 16px;
   font-size: 16px;
   font-weight: 600;
 }
 .hpiBlock{
-  /* background-color: purple; */
   display: flex;
   flex-direction: column;
   padding: 16px 0;
@@ -61,6 +58,7 @@
   border: 1px solid #CAC5CD;
   margin-left: 0;
   box-shadow: 0px 0px 1px 0px rgba(33, 37, 41, 0.08), 0px 2px 2px 0px rgba(33, 37, 41, 0.06);
+  font-size: 16px;
 }
 .severitySelect{
   width: 60%;
@@ -69,6 +67,7 @@
   border: 1px solid #CAC5CD;
   margin-left: 0;
   box-shadow: 0px 0px 1px 0px rgba(33, 37, 41, 0.08), 0px 2px 2px 0px rgba(33, 37, 41, 0.06);
+  font-size: 16px;
 }
 .submit{
   margin: 16px 0; 
@@ -80,8 +79,12 @@
   color: white;
 }
 .submit:hover{
-  background-color: grey;
+  background-color: #A1C181;
+  border: none;
   cursor: pointer;
+}
+.submit:active{
+  box-shadow: none;
 }
 hr{
   margin: 16px 0;
