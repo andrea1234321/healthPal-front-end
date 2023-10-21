@@ -27,7 +27,7 @@ function App() {
   const navigate = useNavigate()
   const location = useLocation();
   const [user, setUser] = useState(authService.getUser())
-  // const [profile, setProfile] = useState([])
+  const [profile, setProfile] = useState([])
 
   const handleLogout = () => {
     authService.logout()
@@ -40,13 +40,13 @@ function App() {
     setUser(authService.getUser())
   }
   
-  // useEffect(() => {
-  //   const fetchProfile = async () => {
-  //     const profileData = await profileService.getProfile()
-  //     setProfile(profileData)
-  //   }
-  //   if(user) fetchProfile()
-  // }, [user])
+  useEffect(() => {
+    const fetchProfile = async () => {
+      const profileData = await profileService.getProfile()
+      setProfile(profileData)
+    }
+    if(user) fetchProfile()
+  }, [user])
 
   // FOR DEMO PURPOSES ONLY
   const handleProfile = async(profile_name) => {
@@ -78,8 +78,7 @@ function App() {
 
   return (
     <div className={getPageBackgroundClass()}>
-      <NavBar user={user} handleLogout={handleLogout} />
-      {/* <NavBar user={user} handleLogout={handleLogout} profile={profile} /> */}
+      <NavBar user={user} handleLogout={handleLogout} profile={profile} />
       <Routes>
         <Route path="/" element={<Landing user={user} />} />
 
