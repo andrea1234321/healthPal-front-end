@@ -56,7 +56,7 @@ const Hpi = ({symptom, handleAddHpi, user}) => {
       : 
         <div className={styles.hpiContainer}>
           <p>{symptom}</p>
-          <hr class="solid"></hr>
+          <hr className="solid"></hr>
           <form autoComplete="off" onSubmit={handleSubmitForm}>
             <div className={styles.hpiBlock}>
               <label htmlFor="location-input" className={styles.label}>Where is the {symptom} located? <span className={styles.asterisk}>(Please respond with n/a if not applicable.)</span></label>
@@ -72,7 +72,7 @@ const Hpi = ({symptom, handleAddHpi, user}) => {
                 onChange={handleChange}
               />
             </div>
-            <hr class="solid"></hr>
+            <hr className="solid"></hr>
             <div className={styles.hpiBlock}>
               <label htmlFor="duration-input" className={styles.label}>How long have you had the {symptom}?</label>
               <div className={styles.lengthAnswers}>
@@ -104,7 +104,7 @@ const Hpi = ({symptom, handleAddHpi, user}) => {
                 </select>
               </div>
             </div>
-            <hr class="solid"></hr>
+            <hr className="solid"></hr>
             <div className={styles.hpiBlock}>
               <label htmlFor="quality-input" className={styles.label}>What does the {symptom} feel like? <span className={styles.asterisk}>(Please respond with n/a if not applicable.)</span> </label>
               <input
@@ -119,7 +119,7 @@ const Hpi = ({symptom, handleAddHpi, user}) => {
                 onChange={handleChange}
               />
             </div>
-            <hr class="solid"></hr>
+            <hr className="solid"></hr>
             <div className={styles.hpiBlock}>
               <label htmlFor="severity-input" className={styles.label}>How intense is the {symptom}? </label>
               <select 
@@ -135,7 +135,7 @@ const Hpi = ({symptom, handleAddHpi, user}) => {
                 <option value="Severe">Severe: Intense and difficult to bear</option>
               </select>
             </div>
-            <hr class="solid"></hr>
+            <hr className="solid"></hr>
             <div className={styles.hpiBlock}>
               <label htmlFor="trigger-input" className={styles.label}>What triggered the {symptom}? <span className={styles.asterisk}> (Please respond with n/a if not applicable.)</span> </label>
               <input
@@ -150,7 +150,7 @@ const Hpi = ({symptom, handleAddHpi, user}) => {
                 onChange={handleChange}
               />
             </div>
-            <hr class="solid"></hr>
+            <hr className="solid"></hr>
             <div className={styles.hpiBlock}>
               <label htmlFor="alleviatingFactors-input" className={styles.label}>What makes the {symptom} feel better? <span className={styles.asterisk}> (Please respond with n/a if not applicable.)</span></label>
               <input
@@ -165,7 +165,7 @@ const Hpi = ({symptom, handleAddHpi, user}) => {
                 onChange={handleChange}
               />
             </div>
-            <hr class="solid"></hr>
+            <hr className="solid"></hr>
             <div className={styles.hpiBlock}>
               <label htmlFor="exacerbatingFactors-input" className={styles.label}>What makes the {symptom} feel worse? <span className={styles.asterisk}> (Please respond with n/a if not applicable.)</span></label>
               <input
@@ -181,7 +181,7 @@ const Hpi = ({symptom, handleAddHpi, user}) => {
               />
             </div>
 
-            <hr class="solid"></hr>
+            <hr className="solid"></hr>
             <div className={styles.hpiBlock}>
               <label htmlFor="otherSxs-input" className={styles.label}>What other symptoms do you have that accompanies the {symptom}? <span className={styles.asterisk}> (Please respond with n/a if not applicable.)</span></label>
               <input
