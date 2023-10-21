@@ -18,6 +18,10 @@ const Signup = ({ handleAuthEvt }) => {
     email: '',
     password: '',
     passwordConf: '',
+    height: '',
+    weight: '',
+    birthYear: '',
+    medicalHx: 'Hypertension',
   })
   const [photoData, setPhotoData] = useState({ photo: null })
   const [isSubmitted, setIsSubmitted] = useState(false)
@@ -71,7 +75,7 @@ const Signup = ({ handleAuthEvt }) => {
     }
   }
 
-  const { name, email, password, passwordConf } = formData
+  const { name, email, password, passwordConf, height, weight, birthYear, medicalHx } = formData
 
   const isFormInvalid = () => {
     return !(name && email && password && password === passwordConf)
@@ -112,6 +116,50 @@ const Signup = ({ handleAuthEvt }) => {
             name="passwordConf"
             onChange={handleChange}
           />
+        </label>
+        <label className={styles.label}>
+          Height
+          <input
+            type="text"
+            value={height}
+            name="height"
+            onChange={handleChange}
+          />
+        </label>
+        <label className={styles.label}>
+          Weight (lbs)
+          <input
+            type="text"
+            value={weight}
+            name="weight"
+            onChange={handleChange}
+          />
+        </label>
+        <label className={styles.label}>
+          Year of birth
+          <input
+            type="text"
+            value={birthYear}
+            name="birthYear"
+            onChange={handleChange}
+          />
+        </label>
+        <label className={styles.label}>
+          Medical History
+          <select
+            required
+            name="medicalHx"
+            value={medicalHx}
+            onChange={handleChange}
+          >
+            <option value="Hypertension">Hypertension</option>
+            <option value="Diabetes">Diabetes</option>
+            <option value="Hyperlipidemia">Hyperlipidemia</option>
+            <option value="Gastric Reflux">Gastric Reflux</option>
+            <option value="Cancer">Cancer</option>
+            <option value="Gout">Gout</option>
+            <option value="Other">Other</option>
+          </select>
         </label>
         <label className={styles.label}>
           Upload Photo
