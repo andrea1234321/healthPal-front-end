@@ -72,9 +72,14 @@ function App() {
   }
 
   const getPageBackgroundClass = () => {
-    const currentPath = location.pathname;
-    return (currentPath === '/' && 'landing-background')
-  };
+    const currentPath = location.pathname
+    if (currentPath === '/') {
+      return 'landing-background'}
+    else {
+      return ''
+    }
+  }
+    
 
   return (
     <div className={getPageBackgroundClass()}>
