@@ -18,6 +18,7 @@ const Signup = ({ handleAuthEvt }) => {
     email: '',
     password: '',
     passwordConf: '',
+    sex: 'Female',
     height: '',
     weight: '',
     birthYear: '',
@@ -75,7 +76,7 @@ const Signup = ({ handleAuthEvt }) => {
     }
   }
 
-  const { name, email, password, passwordConf, height, weight, birthYear, medicalHx } = formData
+  const { name, email, password, passwordConf, sex, height, weight, birthYear, medicalHx } = formData
 
   const isFormInvalid = () => {
     return !(name && email && password && password === passwordConf)
@@ -116,6 +117,18 @@ const Signup = ({ handleAuthEvt }) => {
             name="passwordConf"
             onChange={handleChange}
           />
+        </label>
+        <label className={styles.label}>
+          Sex Assigned at Birth
+          <select
+            required
+            name="sex"
+            value={sex}
+            onChange={handleChange}
+          >
+            <option value="Female">Female</option>
+            <option value="Male">Male</option>
+          </select>
         </label>
         <label className={styles.label}>
           Height
