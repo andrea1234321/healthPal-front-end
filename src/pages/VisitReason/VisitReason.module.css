@@ -7,6 +7,11 @@
 .visitOptions > h1{
   margin-bottom: 42px;
 }
+
+.visitOptions > a {
+  width: 100%;
+  text-decoration: none;
+}
 .visitButton{
   width: 925px;
   padding: 64px;
@@ -22,11 +27,10 @@
   background-color: grey;
   transition: .2s;
 }
-main> a{
-  width: 100%;
-}
+
 .p{
   color: #1D1B20;
   font-size: 18px;
   margin: 0 0 4px 0 !important;
+  text-align: left;
 }
