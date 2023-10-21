@@ -59,7 +59,7 @@ const Hpi = ({symptom, handleAddHpi, user}) => {
           <hr class="solid"></hr>
           <form autoComplete="off" onSubmit={handleSubmitForm}>
             <div className={styles.hpiBlock}>
-              <label htmlFor="location-input" className={styles.label}>Where is the {symptom} located?</label>
+              <label htmlFor="location-input" className={styles.label}>Where is the {symptom} located? Or respond with "n/a".</label>
               <input
                 required
                 type="text"
@@ -74,7 +74,7 @@ const Hpi = ({symptom, handleAddHpi, user}) => {
             </div>
             <hr class="solid"></hr>
             <div className={styles.hpiBlock}>
-              <label htmlFor="duration-input" className={styles.label}>How long have you had the {symptom}</label>
+              <label htmlFor="duration-input" className={styles.label}>How long have you had the {symptom}?</label>
               <div className={styles.lengthAnswers}>
                 <input
                   required
@@ -106,7 +106,7 @@ const Hpi = ({symptom, handleAddHpi, user}) => {
             </div>
             <hr class="solid"></hr>
             <div className={styles.hpiBlock}>
-              <label htmlFor="quality-input" className={styles.label}>What does the {symptom} feel like?</label>
+              <label htmlFor="quality-input" className={styles.label}>What does the {symptom} feel like? Or respond with "n/a".</label>
               <input
                 required
                 type="text"
@@ -121,7 +121,7 @@ const Hpi = ({symptom, handleAddHpi, user}) => {
             </div>
             <hr class="solid"></hr>
             <div className={styles.hpiBlock}>
-              <label htmlFor="severity-input" className={styles.label}>How intense is the {symptom}?</label>
+              <label htmlFor="severity-input" className={styles.label}>How intense is the {symptom}? Or respond with "n/a".</label>
               <select 
                 required 
                 name="severity" 
@@ -137,7 +137,7 @@ const Hpi = ({symptom, handleAddHpi, user}) => {
             </div>
             <hr class="solid"></hr>
             <div className={styles.hpiBlock}>
-              <label htmlFor="trigger-input" className={styles.label}>What triggered the {symptom}?</label>
+              <label htmlFor="trigger-input" className={styles.label}>What triggered the {symptom}? Or respond with "n/a".</label>
               <input
                 required
                 type="text"
@@ -152,7 +152,7 @@ const Hpi = ({symptom, handleAddHpi, user}) => {
             </div>
             <hr class="solid"></hr>
             <div className={styles.hpiBlock}>
-              <label htmlFor="alleviatingFactors-input" className={styles.label}>What makes the {symptom} feel better?</label>
+              <label htmlFor="alleviatingFactors-input" className={styles.label}>What makes the {symptom} feel better? Or respond with "n/a".</label>
               <input
                 required
                 type="text"
@@ -167,7 +167,7 @@ const Hpi = ({symptom, handleAddHpi, user}) => {
             </div>
             <hr class="solid"></hr>
             <div className={styles.hpiBlock}>
-              <label htmlFor="exacerbatingFactors-input" className={styles.label}>What makes the {symptom} feel worse?</label>
+              <label htmlFor="exacerbatingFactors-input" className={styles.label}>What makes the {symptom} feel worse? Or respond with "n/a".</label>
               <input
                 required
                 type="text"
@@ -182,7 +182,7 @@ const Hpi = ({symptom, handleAddHpi, user}) => {
             </div>
             <hr class="solid"></hr>
             <div className={styles.hpiBlock}>
-              <label htmlFor="otherSxs-input" className={styles.label}>What other symptoms do you have that accompanies the {symptom}?</label>
+              <label htmlFor="otherSxs-input" className={styles.label}>What other symptoms do you have that accompanies the {symptom}? Or respond with "n/a".</label>
               <input
                 required
                 type="text"

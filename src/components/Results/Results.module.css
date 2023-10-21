@@ -1,0 +1,29 @@
+.results > * {
+  padding-bottom: 32px;
+}
+
+.ok {
+  background-color: white;
+}
+
+.warning {
+  background-color: #F8EDEB;
+}
+
+.title {
+  display: flex;
+  font-size: 40px;
+  align-items: center;
+  height: 48px;
+}
+
+.title img {
+  width: 48px;
+  height: 100%;
+  margin-right: 16px;
+  
+}
+
+.title * {
+  color: black;
+}
