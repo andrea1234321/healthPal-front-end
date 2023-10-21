@@ -26,13 +26,13 @@ main{
   align-items: center;
   text-align: center;
 }
-a,
+/* a,
 a:visited {
   color: #00533B;
   font-size: 24px;
   font-weight: 700;
   text-decoration: none;
-}
+} */
 
 .landing-background{
   background-image: url('/src/assets/images/background.png');
@@ -42,12 +42,9 @@ a:visited {
   height: 100vh;
 }
 
-/* nav > .navLinks { */
 nav {
   background-color: white;
-  height: 80px;
-  padding: 16px 0;
-  color: #00533B;
+  height: 66px;
   border-bottom: 1px solid #E8E9EB;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   margin: 0;
@@ -58,31 +55,45 @@ nav {
 }
 
 .navLinks {
+  width: 100%;
+  padding: 16px;
   display: flex;
   align-items: center;
   list-style-type: none;
-  padding: 0;
   margin: 0;
-  font-size: 28px;
+}
+
+.navLinks.public {
+  justify-content: center;
+}
+
+.navLinks.private {
+  justify-content: space-between;
 }
 
 .navLinks * {
   display: flex;
-  justify-content: space-between;
-}
-
-.navLinks > .logoName {
-  margin-left: auto;
-}
-
-.navLinks > .logout {
-  margin-right: auto;
+  text-decoration: none;
+  color: #00533B;
+  font-weight: 700;
+  font-style: normal;
 }
 
 .navLinks .photo {
   width: 48px;
   border-radius: 50%;
-  margin-right: auto;
+}
+
+.navLinks > .logoName > a {
+  font-size: 28px;
+}
+
+.navLinks > .logoName > a > img {
+  margin: 0 8px;
+}
+
+.navLinks > .logout {
+  font-size: 18px;
 }
 
 h1{
