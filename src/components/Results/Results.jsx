@@ -5,9 +5,11 @@ import { useState, useEffect } from "react"
 import * as chatService from '../../services/chatService'
 import { Link } from "react-router-dom"
 
-// components
+// assets
 import thumbsdown from '../../assets/icons/thumbsdown.svg'
 import thumbsup from '../../assets/icons/thumbsup.svg'
+import warning from '../../assets/icons/warning.svg'
+import styles from './Results.module.css'
 
 const Results = ({problem, handleAddHpi, handleAddSymptom}) => {
   const [results, setResults] = useState(false)
@@ -27,12 +29,13 @@ const Results = ({problem, handleAddHpi, handleAddSymptom}) => {
 
   const parseResults = (raw) => {
     console.log("RAW:", raw)
-    const sections = raw.split("\n\n");
+    const sections = raw.split("\n");
     let text = {}
     for (let section of sections) {
       const [header, value] = section.split(": ");
       text[header.toLowerCase()] = value
     }
+    console.log("PARSED:",text)
     return text
   }
 
@@ -52,14 +55,14 @@ const Results = ({problem, handleAddHpi, handleAddSymptom}) => {
   }
 
   return (
-    <>
+    <main>
       <div className = 'chatBubble'>
         <p>Thanks for describing your symptoms.</p>
         <p>The results I’m about to show you <b>is not a diagnosis or medical advice.</b> Please seek medical care if your symptoms seem serious. </p>
       </div>
 
       {!results ?
-        <p>Loading...</p>
+        <p>I'm working on it...</p>
       :
         <div className={`chatBubble ${styles.results} ${results.urgent === 'Yes' ? styles.warning : styles.ok}`}>
 
@@ -76,6 +79,7 @@ const Results = ({problem, handleAddHpi, handleAddSymptom}) => {
               </>
             }
           </section>
+
 
           <p> I am <b>{results.score}% confident</b> with the following recommendation. {results.reason}</p>
           
@@ -104,7 +108,7 @@ const Results = ({problem, handleAddHpi, handleAddSymptom}) => {
           </section>
         </div>
       }
-    </>
+    </main>
   );
 }
 

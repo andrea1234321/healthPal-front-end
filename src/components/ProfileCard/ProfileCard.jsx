@@ -10,7 +10,11 @@ const ProfileCard = ({profile, handleProfile}) => {
 
   return (
     <button onClick={()=> handleProfile(profile.name)} className="containerButtons">
-      <h3>{profile.name}</h3>
+      <div className={styles.profileName}>
+        <img src={profile.photo}/>
+        <h3>{profile.name}</h3>
+      </div>
+      
       <div className={styles.profileLabel}>
         <p>Sex assigned at birth:</p>
         <p className={styles.profileInfo}>{profile.sex}</p>

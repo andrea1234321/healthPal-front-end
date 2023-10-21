@@ -180,7 +180,9 @@ const Hpi = ({symptom, handleAddHpi, user}) => {
                 onChange={handleChange}
               />
             </div>
-            <div className={styles.hpiBlockLast}>
+
+            <hr class="solid"></hr>
+            <div className={styles.hpiBlock}>
               <label htmlFor="otherSxs-input" className={styles.label}>What other symptoms do you have that accompanies the {symptom}? Or respond with "n/a".</label>
               <input
                 required

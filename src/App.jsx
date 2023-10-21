@@ -8,10 +8,7 @@ import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
-import Results from './components/Results/Results'
 import VisitReason from './pages/VisitReason/VisitReason'
-import Symptom from './components/Symptom/Symptom'
-import Hpi from './components/Hpi/Hpi'
 import Chat from './pages/Chat/Chat'
 
 // components
@@ -20,37 +17,35 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 
 // services
 import * as authService from './services/authService'
+import * as profileService from './services/profileService'
 
 // styles
 import './App.css'
 
 function App() {
+  const navigate = useNavigate()
 
   const [user, setUser] = useState(authService.getUser())
-
-  const navigate = useNavigate()
-  const [symptom, setSymptom]= useState('')
-  const [problem, setProblem]= useState({})
+  // const [profile, setProfile] = useState([])
 
   const handleLogout = () => {
     authService.logout()
     setUser(null)
     navigate('/')
+    // setProfile(null)
   }
 
   const handleAuthEvt = () => {
     setUser(authService.getUser())
   }
-
-  const handleAddProblem= (form) => {
-    setProblem(form)
-    console.log("problem", problem)
-  }
   
-  const handleAddSymptom= (userResponse) => {
-    setSymptom(userResponse)
-    console.log(symptom)
-  }
+  // useEffect(() => {
+  //   const fetchProfile = async () => {
+  //     const profileData = await profileService.getProfile()
+  //     setProfile(profileData)
+  //   }
+  //   if(user) fetchProfile()
+  // }, [user])
 
   // FOR DEMO PURPOSES ONLY
   const handleProfile = async(profile_name) => {
@@ -78,6 +73,7 @@ function App() {
   return (
     <>
       <NavBar user={user} handleLogout={handleLogout} />
+      {/* <NavBar user={user} handleLogout={handleLogout} profile={profile} /> */}
       <Routes>
         <Route path="/" element={<Landing user={user} />} />
 
@@ -88,14 +84,6 @@ function App() {
               <Profiles handleProfile={handleProfile}/>
           }
         />
-        {/* <Route
-          path="/profiles"
-          element={
-            <ProtectedRoute user={user}>
-              <Profiles />
-            </ProtectedRoute>
-          }
-        /> */}
         <Route
           path="/auth/signup"
           element={<Signup handleAuthEvt={handleAuthEvt} />}
@@ -128,31 +116,6 @@ function App() {
             </ProtectedRoute>
           }
         />
-        {/* 
-        <Route
-          path="/chat/results"
-          element={ 
-            <ProtectedRoute user={user}>
-              <Results problem={problem} user={user}/>
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/chat/symptoms"
-          element={ 
-            <ProtectedRoute user={user}>
-              <Symptom user={user} handleAddSymptom={handleAddSymptom}/>
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/chat/questions"
-          element={ 
-            <ProtectedRoute user={user}>
-              <Questions user={user} symptom={symptom} handleAddProblem={handleAddProblem}/>
-            </ProtectedRoute>
-          }
-        /> */}
       </Routes>
     </>
   )
