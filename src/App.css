@@ -149,6 +149,10 @@ h3{
 }
 .containerButtons:hover{
   cursor: pointer;
+  background-color: #F5F5F5;
+}
+.containerButtons:active{
+  box-shadow: none;
 }
 .hpiSymptom{
   color:#00533B;
