@@ -55,27 +55,27 @@ const Results = ({problem, handleAddHpi, handleAddSymptom}) => {
   }
 
   return (
-    <main>
-      <div className = 'chatBubble'>
-        <p>Thanks for describing your symptoms.</p>
-        <p>The results I’m about to show you <b>is not a diagnosis or medical advice.</b> Please seek medical care if your symptoms seem serious. </p>
+    <>
+      <div className = 'chatContainer'>
+        <p className = 'chatBubble'>Thanks for describing your symptoms.</p>
+        <p className = 'chatBubble'>The results I’m about to show you <b>is not a diagnosis or medical advice.</b> Please seek medical care if your symptoms seem serious. </p>
       </div>
 
       {!results ?
         <p>I'm working on it...</p>
       :
-        <div className={`chatBubble ${styles.results} ${results.urgent === 'Yes' ? styles.warning : styles.ok}`}>
+      <div className="chatContainer">
+        <div className={`resultsBubble ${styles.results} ${results.urgent === 'Yes' ? styles.warning : styles.ok}`}>
 
           <section className={styles.title}>
             {results.urgent === 'Yes' ?
               <>
                 <img className="alert" src={warning} alt= 'Warning symbol' />
-                <h1>Alarming scenario detected</h1>
+                <h3>Alarming scenario detected</h3>
               </>
             :
               <>
-                <img className="alert" src={warning} alt= 'Warning symbol' />
-                <h1>What I found</h1>
+                <h3>What I found</h3>
               </>
             }
           </section>
@@ -83,9 +83,9 @@ const Results = ({problem, handleAddHpi, handleAddSymptom}) => {
 
           <p> I am <b>{results.score}% confident</b> with the following recommendation. {results.reason}</p>
           
-          <h2>Best treatment option and what to do next</h2>
+          <p className="subtitle">Best treatment option and what to do next</p>
           <p>{results.treatment}</p>
-          <h2>Symptoms that led to the recommended treatment</h2>
+          <p className="subtitle">Symptoms that led to the recommended treatment</p>
           <p>{results.symptoms}</p>
           
           <section className= 'feedback'>
@@ -107,8 +107,9 @@ const Results = ({problem, handleAddHpi, handleAddSymptom}) => {
             <button onClick={handleReset}>Start Over</button>
           </section>
         </div>
+      </div> 
       }
-    </main>
+    </>
   );
 }
 

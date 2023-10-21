@@ -1,6 +1,7 @@
 // npm modules
 import { useState, useEffect } from 'react'
 import { Routes, Route, useNavigate } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 
 // pages
 import Signup from './pages/Signup/Signup'
@@ -24,7 +25,7 @@ import './App.css'
 
 function App() {
   const navigate = useNavigate()
-
+  const location = useLocation();
   const [user, setUser] = useState(authService.getUser())
   // const [profile, setProfile] = useState([])
 
@@ -70,8 +71,13 @@ function App() {
     }
   }
 
+  const getPageBackgroundClass = () => {
+    const currentPath = location.pathname;
+    return (currentPath === '/' && 'landing-background')
+  };
+
   return (
-    <>
+    <div className={getPageBackgroundClass()}>
       <NavBar user={user} handleLogout={handleLogout} />
       {/* <NavBar user={user} handleLogout={handleLogout} profile={profile} /> */}
       <Routes>
@@ -117,7 +123,7 @@ function App() {
           }
         />
       </Routes>
-    </>
+    </div>
   )
 }
 
