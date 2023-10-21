@@ -8,6 +8,16 @@ import styles from './ProfileCard.module.css'
 
 const ProfileCard = ({profile, handleProfile}) => {
 
+  const inchesToFeetAndInches= (inches)=> {  
+    const feet = Math.floor(inches / 12);
+    const remainingInches = inches % 12;
+  
+    if (remainingInches === 0) {
+      return `${feet}'`;
+    }
+    return `${feet}' ${remainingInches}"`;
+  }
+
   return (
     <button onClick={()=> handleProfile(profile.name)} className="containerButtons">
       <div className={styles.profileName}>
@@ -29,7 +39,7 @@ const ProfileCard = ({profile, handleProfile}) => {
       </div>
       <div className={styles.profileLabel}>
         <p>Height:</p>
-        <p className={styles.profileInfo}>{profile.height} inches</p>
+        <p className={styles.profileInfo}>{inchesToFeetAndInches(profile.height)}</p>
       </div>
       <div className={styles.profileLabel}>
         <p>Medical History:</p>
