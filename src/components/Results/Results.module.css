@@ -1,22 +1,22 @@
-/* .results > * {
-  padding-bottom: 32px;
-} */
-
 .ok {
   background-color: white;
   border: 1px solid #A1C181;
   background-color: white;
-  border-radius: 16px;
+  border-radius: 16px !important;
   padding: 32px;
-  color: black;
   width: 50%;
   text-align: left;
   margin: 8px 0;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
-
+.okTitle{
+  color: #00533B;
+}
 .warning {
   background-color: #f8edeb;
+}
+.warningTitle{
+  color: black;
 }
 .title{
   display: flex;
@@ -30,9 +30,10 @@
   margin-bottom: 32px;
 }
 
-.title * {
-  color: black;
-}
 .title > h3{
   margin-bottom: 32px;
+}
+.subtext{
+  margin-bottom: 32px;
+  margin-top: 0;
 }
