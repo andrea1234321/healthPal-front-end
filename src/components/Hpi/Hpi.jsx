@@ -56,10 +56,11 @@ const Hpi = ({symptom, handleAddHpi, user}) => {
       : 
         <div className={styles.hpiContainer}>
           <p>{symptom}</p>
+          <p className={styles.asterisk}>*If the question does not apply to your symptom please respond with n/a</p>
           <hr class="solid"></hr>
           <form autoComplete="off" onSubmit={handleSubmitForm}>
             <div className={styles.hpiBlock}>
-              <label htmlFor="location-input" className={styles.label}>Where is the {symptom} located? Or respond with "n/a".</label>
+              <label htmlFor="location-input" className={styles.label}>Where is the {symptom} located? </label>
               <input
                 required
                 type="text"
@@ -82,7 +83,7 @@ const Hpi = ({symptom, handleAddHpi, user}) => {
                   type="number"
                   name="duration"
                   id="duration-input"
-                  placeholder="enter a number"
+                  placeholder="Enter a number"
                   value={form.duration}
                   className={styles.lengthInput}
                   maxLength={5}
@@ -106,7 +107,7 @@ const Hpi = ({symptom, handleAddHpi, user}) => {
             </div>
             <hr class="solid"></hr>
             <div className={styles.hpiBlock}>
-              <label htmlFor="quality-input" className={styles.label}>What does the {symptom} feel like? Or respond with "n/a".</label>
+              <label htmlFor="quality-input" className={styles.label}>What does the {symptom} feel like? </label>
               <input
                 required
                 type="text"
@@ -121,7 +122,7 @@ const Hpi = ({symptom, handleAddHpi, user}) => {
             </div>
             <hr class="solid"></hr>
             <div className={styles.hpiBlock}>
-              <label htmlFor="severity-input" className={styles.label}>How intense is the {symptom}? Or respond with "n/a".</label>
+              <label htmlFor="severity-input" className={styles.label}>How intense is the {symptom}? </label>
               <select 
                 required 
                 name="severity" 
@@ -137,7 +138,7 @@ const Hpi = ({symptom, handleAddHpi, user}) => {
             </div>
             <hr class="solid"></hr>
             <div className={styles.hpiBlock}>
-              <label htmlFor="trigger-input" className={styles.label}>What triggered the {symptom}? Or respond with "n/a".</label>
+              <label htmlFor="trigger-input" className={styles.label}>What triggered the {symptom}? </label>
               <input
                 required
                 type="text"
@@ -152,7 +153,7 @@ const Hpi = ({symptom, handleAddHpi, user}) => {
             </div>
             <hr class="solid"></hr>
             <div className={styles.hpiBlock}>
-              <label htmlFor="alleviatingFactors-input" className={styles.label}>What makes the {symptom} feel better? Or respond with "n/a".</label>
+              <label htmlFor="alleviatingFactors-input" className={styles.label}>What makes the {symptom} feel better?</label>
               <input
                 required
                 type="text"
@@ -167,7 +168,7 @@ const Hpi = ({symptom, handleAddHpi, user}) => {
             </div>
             <hr class="solid"></hr>
             <div className={styles.hpiBlock}>
-              <label htmlFor="exacerbatingFactors-input" className={styles.label}>What makes the {symptom} feel worse? Or respond with "n/a".</label>
+              <label htmlFor="exacerbatingFactors-input" className={styles.label}>What makes the {symptom} feel worse? </label>
               <input
                 required
                 type="text"
@@ -183,7 +184,7 @@ const Hpi = ({symptom, handleAddHpi, user}) => {
 
             <hr class="solid"></hr>
             <div className={styles.hpiBlock}>
-              <label htmlFor="otherSxs-input" className={styles.label}>What other symptoms do you have that accompanies the {symptom}? Or respond with "n/a".</label>
+              <label htmlFor="otherSxs-input" className={styles.label}>What other symptoms do you have that accompanies the {symptom}? </label>
               <input
                 required
                 type="text"
