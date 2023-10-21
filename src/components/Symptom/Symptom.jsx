@@ -27,7 +27,7 @@ const Symptom = ({handleAddSymptom, symptom, symptomAdded}) => {
     handleScrollToSymptom()
   }
   function handleScrollToSymptom(){
-    symptomRef.current.scrollIntoView()
+    symptomRef.current.scrollIntoView({ behavior: "smooth" })
   }
  
   return ( 
