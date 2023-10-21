@@ -71,22 +71,22 @@ const Results = ({problem, handleAddHpi, handleAddSymptom}) => {
             {results.urgent === 'Yes' ?
               <>
                 <img className="alert" src={warning} alt= 'Warning symbol' />
-                <h3>Alarming scenario detected</h3>
+                <h3 className={styles.warningTitle}>Alarming scenario detected</h3>
               </>
             :
               <>
-                <h3>What I found</h3>
+                <h3 className={styles.okTitle}>What I found</h3>
               </>
             }
           </section>
 
 
-          <p> I am <b>{results.score}% confident</b> with the following recommendation. {results.reason}</p>
+          <p className={styles.subtext}> I am <b>{results.score}% confident</b> with the following recommendation. {results.reason}</p>
           
           <p className="subtitle">Best treatment option and what to do next</p>
-          <p>{results.treatment}</p>
+          <p className={styles.subtext}>{results.treatment}</p>
           <p className="subtitle">Symptoms that led to the recommended treatment</p>
-          <p>{results.symptoms}</p>
+          <p className={styles.subtext}>{results.symptoms}</p>
           
           <section className= 'feedback'>
             <p>Was the recommendation reasonable?</p>
@@ -100,11 +100,11 @@ const Results = ({problem, handleAddHpi, handleAddSymptom}) => {
 
           <section className= 'exit'>
             <Link to="/">
-              <button>Thank you, finish demo</button>
+              <button className="finishButton">Thank you, finish demo</button>
             </Link>
-            <button>Save to my chat history</button>
+            <button className="saveButton" disabled>Save to my chat history</button>
             <p>If this doesn't seem right, you can start over.</p>
-            <button onClick={handleReset}>Start Over</button>
+            <button onClick={handleReset} className="startOverButton">Start Over</button>
           </section>
         </div>
       </div> 
