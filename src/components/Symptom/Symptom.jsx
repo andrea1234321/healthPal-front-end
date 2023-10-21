@@ -1,11 +1,11 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useRef } from "react";
 import data from "../../data/data.json"
 import styles from './Symptom.module.css'
 
 const Symptom = ({handleAddSymptom, symptom, symptomAdded}) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredData, setFilteredData] = useState(data);
+  const symptomRef= useRef()
 
   const handleInputChange = (event) => {
     const {value} = event.target;
@@ -20,22 +20,21 @@ const Symptom = ({handleAddSymptom, symptom, symptomAdded}) => {
   setFilteredData(filteredData);
   };
 
-  const handleClickSymptom = (symptom) => {
+  const handleClickSymptom = async (symptom) => {
     setSearchTerm(symptom)
-    handleAddSymptom(symptom)
+    await handleAddSymptom(symptom)
     setSearchTerm('')
-    // setSymptomAdded(true)
+    handleScrollToSymptom()
   }
-
-  // if (!symptomAdded){
-  //   setSearchTerm('')
-  // }
-
+  function handleScrollToSymptom(){
+    symptomRef.current.scrollIntoView()
+  }
+ 
   return ( 
-    <div className="userContainer">
+    <div className="userContainer" ref={symptomRef}>
       {symptomAdded ? 
-        <div className="user">
-          <p className="userBubble">My current symptom is: {symptom}</p>
+        <div className="user" >
+          <p className="userBubble" >My current symptom is: {symptom}</p>
         </div>
       :   
       <>
@@ -58,9 +57,7 @@ const Symptom = ({handleAddSymptom, symptom, symptomAdded}) => {
               : ''}
         </div>
       </>
-    }
-  
-        
+    } 
     </div>
    );
 }

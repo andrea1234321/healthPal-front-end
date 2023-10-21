@@ -90,5 +90,6 @@ hr{
   margin: 16px 0;
 }
 .asterisk{
-  font-size: 16px !important;
+  color: #79767D;
+  font-weight: normal;
 }
