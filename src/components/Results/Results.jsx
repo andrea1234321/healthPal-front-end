@@ -64,21 +64,22 @@ const Results = ({problem, handleAddHpi, handleAddSymptom}) => {
       {!results ?
         <p>I'm working on it...</p>
       :
-        <div className={`chatBubble ${styles.results} ${results.urgent === 'Yes' ? styles.warning : styles.ok}`} >
+        <div className={`chatBubble ${styles.results} ${results.urgent === 'Yes' ? styles.warning : styles.ok}`}>
 
-        <section className={styles.title}>
-          {results.urgent === 'Yes' ?
-            <>
-              <img className="alert" src={warning} alt= 'Warning symbol' />
-              <h1>Alarming scenario detected</h1>
-            </>
-          :
-            <>
-              <img className="alert" src={warning} alt= 'Warning symbol' />
-              <h1>What I found</h1>
-            </>
-          }
-        </section>
+          <section className={styles.title}>
+            {results.urgent === 'Yes' ?
+              <>
+                <img className="alert" src={warning} alt= 'Warning symbol' />
+                <h1>Alarming scenario detected</h1>
+              </>
+            :
+              <>
+                <img className="alert" src={warning} alt= 'Warning symbol' />
+                <h1>What I found</h1>
+              </>
+            }
+          </section>
+
 
           <p> I am <b>{results.score}% confident</b> with the following recommendation. {results.reason}</p>
           
