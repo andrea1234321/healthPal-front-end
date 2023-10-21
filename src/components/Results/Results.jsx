@@ -29,7 +29,7 @@ const Results = ({problem, handleAddHpi, handleAddSymptom}) => {
 
   const parseResults = (raw) => {
     console.log("RAW:", raw)
-    const sections = raw.split("\n");
+    const sections = raw.split("\n\n");
     let text = {}
     for (let section of sections) {
       const [header, value] = section.split(": ");
