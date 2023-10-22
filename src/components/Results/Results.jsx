@@ -64,7 +64,7 @@ const Results = ({problem, handleAddHpi, handleAddSymptom}) => {
     <>
       <div className = 'chatContainer'>
         <p className = 'chatBubble'>Thanks for describing your symptoms.</p>
-        <p className = 'chatBubble'>The results I’m about to show you <b>is not a diagnosis or medical advice.</b> Please seek medical care if your symptoms seem serious. </p>
+        <p className = 'chatBubble'>The results I’m about to show you <b>is not a diagnosis or professional medical advice.</b> Please seek medical care if your symptoms seem serious. </p>
       </div>
 
       {!results ?

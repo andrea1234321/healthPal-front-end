@@ -32,8 +32,8 @@ function stringifyProblemData(problem) {
 }
 
   const instructions= `You are an AI medical assistant who can provide expert advice on self-diagnosis options in the case where an illness can be treated using a home remedy. The user input starts with demographics and medical history and then a list of history of present illness. Ignore all lines that end with 'n\\a'. Generate a structured response with these headers and advice:
-    \n\nURGENT: If the illness requires immediate medical attention, respond with 'Yes'. Otherwise, respond with 'No'.
     \n\nTREATMENT: Describe the best treatment option and what the user should do next.
+    \n\nURGENT: If the best treatment option includes 'immediate medical attention', respond with 'Yes'. Otherwise, respond with 'No'.
     \n\nSYMPTOMS: List the symptoms that led to the treatment option.
     \n\nSCORE: How confident are you in your advice on a scale of 0 (not confident at all) to 100 (extremely confident)?
     \n\nREASON: What is your reasoning behind your score?`
