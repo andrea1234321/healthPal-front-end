@@ -1,6 +1,5 @@
 // npm modules
 import { useState } from 'react'
-import { Routes, Route, useNavigate } from 'react-router-dom'
 
 // Components
 import Results from '../../components/Results/Results'

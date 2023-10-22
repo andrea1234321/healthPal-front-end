@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import styles from "./hpi.module.css"
 
-const Hpi = ({symptom, handleAddHpi, user}) => {
+const Hpi = ({symptom, handleAddHpi}) => {
   const [form, setForm] = useState({
     concern: symptom,
     location: '',
@@ -18,7 +18,7 @@ const Hpi = ({symptom, handleAddHpi, user}) => {
   const [formComplete, setFormComplete]= useState(false)
 
 
-   const handleChange = (evt) => {
+  const handleChange = (evt) => {
     setForm({...form, [evt.target.name]: evt.target.value })
   }
 
@@ -29,8 +29,8 @@ const Hpi = ({symptom, handleAddHpi, user}) => {
     console.log(form)
   }
 
-   return ( 
-      <>
+  return ( 
+    <>
       <div className='chatContainer'>
         <p className="chatBubble">Can you tell me more about your {symptom}?</p>
       </div>
@@ -200,8 +200,8 @@ const Hpi = ({symptom, handleAddHpi, user}) => {
           </form>
         </div>
         }
-      </>
-   )
+    </>
+  )
 }
 
 export default Hpi;

@@ -1,8 +1,10 @@
-// css
-import styles from './Landing.module.css'
+// npm modules
 import { Link } from 'react-router-dom'
 
-const Landing = ({ user }) => {
+// css
+import styles from './Landing.module.css'
+
+const Landing = () => {
   return (
     <main className={styles.container}>
       <p className={styles.landingGreeting}>Welcome to Health Pal!</p>
