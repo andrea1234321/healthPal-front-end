@@ -22,7 +22,7 @@ const NavBar = ({ user, handleLogout, profile}) => {
         </ul>
       :
         <ul className='navLinks public'>
-          <li className='logoName'><NavLink to="/"><img src={logo} alt="Health Pal Logo" />Health Pal</NavLink>
+          <li className='logoName'><img src={logo} alt="Health Pal Logo" />Health Pal
           </li>
           {/* <li><NavLink to="/auth/login">Log In</NavLink></li>*/}
           {/* <li><NavLink to="/auth/signup">Sign Up</NavLink></li> */}

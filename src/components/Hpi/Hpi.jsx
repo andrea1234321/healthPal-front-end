@@ -42,11 +42,11 @@ const Hpi = ({symptom, handleAddHpi, user}) => {
               <p className='hpiSymptom'>{symptom}</p>
               <div className='hpi'>
                 <p><span className='category'>Location:</span> {form.location}</p>
-                <p><span className='category'>Duration:</span>{form.duration} {form.unit}</p>
+                <p><span className='category'>Duration:</span> {form.duration} {form.unit}</p>
                 <p><span className='category'>Quality:</span> {form.quality}</p>
                 <p><span className='category'>Severity:</span> {form.severity}</p>
                 <p><span className='category'>Triggered By:</span> {form.trigger}</p>
-                <p><span className='category'>Alleviated By:</span>{form.alleviatingFactors}</p>
+                <p><span className='category'>Alleviated By:</span> {form.alleviatingFactors}</p>
                 <p><span className='category'>Exacerbated By:</span> {form.exacerbatingFactors}</p>
                 <p><span className='category'>Accompanying Symptoms:</span> {form.otherSxs}</p>
               </div>
