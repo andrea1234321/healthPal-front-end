@@ -79,10 +79,10 @@ const Results = ({problem, handleAddHpi, handleAddSymptom}) => {
         <p>I'm working on it...</p>
       :
       <div className="chatContainer" ref={resultsRef}>
-        <div className={`resultsBubble ${styles.results} ${results.urgent === 'Yes' ? styles.warning : styles.ok}`}>
+        <div className={`resultsBubble ${styles.results} ${results.urgent === 'Yes\n' ? styles.warning : styles.ok}`}>
 
           <section className={styles.title}>
-            {results.urgent === 'Yes' ?
+            {results.urgent === 'Yes\n' ?
               <>
                 <img className="alert" src={warning} alt= 'Warning symbol' />
                 <h3 className={styles.warningTitle}>Alarming scenario detected</h3>
