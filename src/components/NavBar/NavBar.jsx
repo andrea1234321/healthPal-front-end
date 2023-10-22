@@ -8,7 +8,7 @@ const NavBar = ({ user, handleLogout, profile}) => {
     <nav>
       {user ?
         <ul className='navLinks private'>
-          <li><NavLink to=""><img className='photo'src={profile.photo} alt="My Photo" /></NavLink></li>
+          <li><img className='photo'src={profile.photo} alt="My Photo" /></li>
 
           <li className='logoName'><NavLink to="/"><img src={logo} alt="Health Pal Logo" />Health Pal</NavLink>
           </li>
@@ -22,7 +22,7 @@ const NavBar = ({ user, handleLogout, profile}) => {
         </ul>
       :
         <ul className='navLinks public'>
-          <li className='logoName'><img src={logo} alt="Health Pal Logo" />Health Pal
+          <li className='logoName'><NavLink to="/"><img src={logo} alt="Health Pal Logo" />Health Pal</NavLink>
           </li>
           {/* <li><NavLink to="/auth/login">Log In</NavLink></li>*/}
           {/* <li><NavLink to="/auth/signup">Sign Up</NavLink></li> */}
