@@ -171,7 +171,7 @@ const Signup = ({ handleAuthEvt }) => {
             <option value="Gastric Reflux">Gastric Reflux</option>
             <option value="Cancer">Cancer</option>
             <option value="Gout">Gout</option>
-            <option value="Other">Other</option>
+            <option value="Asthma">Asthma</option>
           </select>
         </label>
         <label className={styles.label}>

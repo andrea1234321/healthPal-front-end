@@ -18,6 +18,8 @@ const ProfileCard = ({profile, handleProfile}) => {
     return `${feet}' ${remainingInches}"`;
   }
 
+  const age = new Date().getFullYear() - profile.birthYear
+
   return (
     <button onClick={()=> handleProfile(profile.name)} className="containerButtons">
       <div className={styles.profileName}>
@@ -30,8 +32,8 @@ const ProfileCard = ({profile, handleProfile}) => {
         <p className={styles.profileInfo}>{profile.sex}</p>
       </div>
       <div className={styles.profileLabel}>
-        <p>Year of Birth:</p>
-        <p className={styles.profileInfo}>{profile.birthYear}</p>
+        <p>Age:</p>
+        <p className={styles.profileInfo}>{age}</p>
       </div>
       <div className={styles.profileLabel}>
         <p>Weight:</p>

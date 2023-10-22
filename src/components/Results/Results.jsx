@@ -31,14 +31,22 @@ const Results = ({problem, handleAddHpi, handleAddSymptom}) => {
 
   const parseResults = (raw) => {
     console.log("RAW:", raw)
-    const sections = raw.split("\n\n");
-    let text = {}
-    for (let section of sections) {
-      const [header, value] = section.split(": ");
-      text[header.toLowerCase()] = value
-    }
-    console.log("PARSED:",text)
-    return text
+    const parsedData = {}
+    const lines = raw.split('\n')
+
+    let currentKey = '';
+    lines.forEach(line => {
+      const matches = line.match(/^([A-Z]+): (.+)$/);
+      if (matches) {
+        currentKey = matches[1].toLowerCase()
+        parsedData[currentKey] = matches[2]
+      } else if (currentKey) {
+        // To account for lists included in the response: append the line to previus value;
+        parsedData[currentKey] += '\n' + line
+      }
+    })
+    console.log("PARSED:",parsedData)
+    return parsedData
   }
 
   const handleThumbsUpClick =() =>{
