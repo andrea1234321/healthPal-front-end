@@ -21,7 +21,7 @@ const Results = ({problem, handleAddHpi, handleAddSymptom}) => {
       try {
         const data = await chatService.getResultsFromAPI(problem)
         setResults(parseResults(data.choices[0].message.content))
-        handleScrollToResults()
+        // handleScrollToResults()
       } catch (error){
         console.error("Error fetching results from the API:", error);
       }
@@ -64,9 +64,9 @@ const Results = ({problem, handleAddHpi, handleAddSymptom}) => {
     setFeedback(null)
   }
 
-  function handleScrollToResults(){
-    resultsRef.current.scrollIntoView({ behavior: "smooth"})
-  }
+  // function handleScrollToResults(){
+  //   resultsRef.current.scrollIntoView({ behavior: "smooth"})
+  // }
 
   return (
     <>
