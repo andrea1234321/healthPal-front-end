@@ -1,6 +1,6 @@
 
 import { useState } from 'react'
-import styles from "./hpi.module.css"
+import styles from "./Hpi.module.css"
 
 const Hpi = ({symptom, handleAddHpi, user}) => {
   const [form, setForm] = useState({
