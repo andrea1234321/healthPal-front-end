@@ -16,7 +16,7 @@ const VisitReason = ({user}) => {
             <p className={styles.p}>for my current symptoms</p>
           </button>
         </Link>
-        <button className="containerButtons">
+        <button className="containerButtons" id="disabledBtn" disabled>
           <p className={styles.p}><strong>I need an annual wellness visit</strong></p>
           <p className={styles.p}>required for insurance</p>
         </button>
