@@ -29,11 +29,9 @@ const Profiles = ({handleProfile}) => {
     <main className={styles.main}>
       <p className='greeting'>Welcome to Health Pal!</p>
       <h1 className={styles.userOption}>Who do you want to chat as?</h1>
-      {/* <div className= {styles.container}> */}
-        {profiles.map(profile => (
-          <ProfileCard key={profile._id} profile={profile} handleProfile={handleProfile} />
-        ))}  
-      {/* </div> */}
+      {profiles.map(profile => (
+        <ProfileCard key={profile._id} profile={profile} handleProfile={handleProfile} />
+      ))}
     </main>
   )
 }

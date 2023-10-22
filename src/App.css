@@ -16,23 +16,15 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-  /* text-align: center;  */
 }
+
 main{
   margin: 0 26%;
-  /* background-color: red; */
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
 }
-/* a,
-a:visited {
-  color: #00533B;
-  font-size: 24px;
-  font-weight: 700;
-  text-decoration: none;
-} */
 
 .landing-background{
   background-image: url('/src/assets/images/background.png');
@@ -124,11 +116,9 @@ h3{
   margin-bottom: 8px;
 }
 .chatContainer{
-  /* background-color: purple; */
   width: 100%;
   display: flex;
   flex-direction: column;
-  /* background-color: red; */
 }
 .chatBubble{
   background-color: #B0CDC5;
@@ -142,14 +132,11 @@ h3{
   text-align: left;
 }
 .userContainer{
-  /* background-color: purple; */
   width: 100%;
   display: flex;
   flex-direction: column;
-  /* background-color: red; */
 }
 .user{
-  /* background-color: purple; */
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -237,7 +224,6 @@ h3{
   margin-top: 0px;
 }
 .feedback{
-  /* background-color: red; */
   display: flex;
   align-items: center;
   margin-bottom: 14px;
@@ -251,7 +237,6 @@ h3{
   margin-right: 16px;
   border: none;
   background-color: #DEE2E6;
- 
 }
 .feedback button:hover{
   cursor: pointer;
@@ -264,7 +249,6 @@ h3{
 .exit{
   display: flex;
   flex-direction: column;
-  /* background-color: red; */
 }
 .exit button{
   padding: 16px; 
@@ -272,9 +256,7 @@ h3{
   font-size: 18px;
   font-weight: 700;
 }
-/* .finishButton .saveButton{
-  background-color: red;
-} */
+
 .finishButton{
   background-color: #00533B;
   color: white;

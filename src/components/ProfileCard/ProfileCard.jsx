@@ -1,9 +1,3 @@
-// npm modules
-import { useState, useEffect } from 'react'
-
-// npm modules
-import { Link } from "react-router-dom"
-
 import styles from './ProfileCard.module.css'
 
 const ProfileCard = ({profile, handleProfile}) => {

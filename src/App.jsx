@@ -33,7 +33,6 @@ function App() {
     authService.logout()
     setUser(null)
     navigate('/')
-    // setProfile(null)
   }
 
   const handleAuthEvt = () => {

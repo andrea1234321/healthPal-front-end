@@ -10,14 +10,12 @@
   box-shadow: 0px 0px 1px 0px rgba(33, 37, 41, 0.08), 0px 2px 2px 0px rgba(33, 37, 41, 0.06);
 }
 .symptomList{
-  /* background-color: paleturquoise; */
   text-align: left;
   margin: 0 auto;
   padding: 0;
   color: #00533B;
   font-size: 16px;
   font-weight: 400;
-  /* width: 925px; */
 }
 .symptomOptions{
   padding: 16px 16px 16px 44px !important;

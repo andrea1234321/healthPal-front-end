@@ -29,7 +29,7 @@ const Symptom = ({handleAddSymptom, symptom, symptomAdded}) => {
   function handleScrollToSymptom(){
     symptomRef.current.scrollIntoView({ behavior: "smooth" })
   }
- 
+
   return ( 
     <div className="userContainer" ref={symptomRef}>
       {symptomAdded ? 
@@ -37,29 +37,29 @@ const Symptom = ({handleAddSymptom, symptom, symptomAdded}) => {
           <p className="userBubble" >My current symptom is: {symptom}</p>
         </div>
       :   
-      <>
-        <input 
-        type="text" 
-        placeholder="Search for a symptom" 
-        value={searchTerm}
-        onChange={handleInputChange}
-        className={styles.symptomInput}
-        />
-        <div>
-          {searchTerm ? 
-            <ul className={styles.symptomList}>
-              {filteredData.map((item)=> (
-                  <li key={item.id} className={styles.symptomOptions} onClick={()=> handleClickSymptom(item.name)} >
-                    {item.name}
-                  </li>
-              ))}
-            </ul>
-              : ''}
-        </div>
-      </>
-    } 
+        <>
+          <input 
+          type="text" 
+          placeholder="Search for a symptom" 
+          value={searchTerm}
+          onChange={handleInputChange}
+          className={styles.symptomInput}
+          />
+          <div>
+            {searchTerm ? 
+              <ul className={styles.symptomList}>
+                {filteredData.map((item)=> (
+                    <li key={item.id} className={styles.symptomOptions} onClick={()=> handleClickSymptom(item.name)} >
+                      {item.name}
+                    </li>
+                ))}
+              </ul>
+                : ''}
+          </div>
+        </>
+      } 
     </div>
-   );
+  );
 }
- 
+
 export default Symptom;

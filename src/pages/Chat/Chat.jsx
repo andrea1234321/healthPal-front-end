@@ -1,8 +1,7 @@
 // npm modules
 import { useState } from 'react'
-import { Routes, Route, useNavigate } from 'react-router-dom'
 
-// Components
+// components
 import Results from '../../components/Results/Results'
 import Symptom from '../../components/Symptom/Symptom'
 import Hpi from '../../components/Hpi/Hpi'
@@ -17,15 +16,11 @@ function Chat({user}) {
   const handleAddHpi= (form) => {
     setHpi(form)
     setHpiComplete(!hpiComplete)
-    console.log("hpiComplete", hpiComplete)
-    console.log("HPI:", hpi)
   }
 
   const handleAddSymptom= (userResponse) => {
     setSymptom(userResponse)
-    console.log(symptom)
     setSymptomAdded(!symptomAdded)
-    console.log(symptomAdded)
   }
 
 
