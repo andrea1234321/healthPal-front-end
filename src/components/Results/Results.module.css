@@ -22,7 +22,6 @@
 .title{
   display: flex;
   align-items: center;
-  /* background-color: red; */
 }
 .title img {
   width: 48px;

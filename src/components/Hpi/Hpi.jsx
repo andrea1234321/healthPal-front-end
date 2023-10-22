@@ -26,7 +26,6 @@ const Hpi = ({symptom, handleAddHpi}) => {
     evt.preventDefault()
     handleAddHpi(form)
     setFormComplete(true)
-    console.log(form)
   }
 
   return ( 

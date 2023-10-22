@@ -21,7 +21,7 @@ const Results = ({problem, handleAddHpi, handleAddSymptom}) => {
       try {
         const data = await chatService.getResultsFromAPI(problem)
         setResults(parseResults(data.choices[0].message.content))
-        // handleScrollToResults()
+
       } catch (error){
         console.error("Error fetching results from the API:", error);
       }
@@ -30,7 +30,6 @@ const Results = ({problem, handleAddHpi, handleAddSymptom}) => {
   },[])
 
   const parseResults = (raw) => {
-    console.log("RAW:", raw)
     const parsedData = {}
     const lines = raw.split('\n')
 
@@ -41,11 +40,10 @@ const Results = ({problem, handleAddHpi, handleAddSymptom}) => {
         currentKey = matches[1].toLowerCase()
         parsedData[currentKey] = matches[2]
       } else if (currentKey) {
-        // To account for lists included in the response: append the line to previus value;
+        // To account for lists included in the response: append the line to previus value:
         parsedData[currentKey] += '\n' + line
       }
     })
-    console.log("PARSED:",parsedData)
     return parsedData
   }
 
@@ -63,10 +61,6 @@ const Results = ({problem, handleAddHpi, handleAddSymptom}) => {
     setResults(false)
     setFeedback(null)
   }
-
-  // function handleScrollToResults(){
-  //   resultsRef.current.scrollIntoView({ behavior: "smooth"})
-  // }
 
   return (
     <>

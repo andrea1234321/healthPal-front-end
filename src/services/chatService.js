@@ -50,8 +50,6 @@ async function getResultsFromAPI(problem) {
     const problemString = stringifyProblemData(problem);
     const userInput = profileString + problemString;
 
-    console.log("MESSAGE STRING:", userInput)
-
     const res = await fetch(`${BASE_URL}/results`, {
       method: 'POST',
       headers: {
